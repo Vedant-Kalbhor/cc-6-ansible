@@ -1,5 +1,3 @@
 *.pem
 *.retry
-.ansible/
-ansible_logs_saved.log
-reports/
+

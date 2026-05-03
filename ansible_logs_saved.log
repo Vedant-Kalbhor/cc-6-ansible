@@ -1,0 +1,1253 @@
+ansible-playbook [core 2.16.3]
+  config file = /home/ubuntu/ansible-project/ansible.cfg
+  configured module search path = ['/home/ubuntu/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/ubuntu/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.12.3 (main, Mar  3 2026, 12:15:18) [GCC 13.3.0] (/usr/bin/python3)
+  jinja version = 3.1.2
+  libyaml = True
+Using /home/ubuntu/ansible-project/ansible.cfg as config file
+host_list declined parsing /home/ubuntu/ansible-project/aws_ec2.yml as it did not pass its verify_file() method
+script declined parsing /home/ubuntu/ansible-project/aws_ec2.yml as it did not pass its verify_file() method
+Using inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' to process inventory source '/home/ubuntu/ansible-project/aws_ec2.yml'
+Parsed /home/ubuntu/ansible-project/aws_ec2.yml inventory source with auto plugin
+Skipping callback 'default', as we already have a stdout callback.
+Skipping callback 'minimal', as we already have a stdout callback.
+Skipping callback 'oneline', as we already have a stdout callback.
+
+PLAYBOOK: site.yml *************************************************************
+2 plays in site.yml
+
+PLAY [Configure Apache server] *************************************************
+
+TASK [Gathering Facts] *********************************************************
+task path: /home/ubuntu/ansible-project/site.yml:1
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<3.239.234.89> (0, b'/home/ubuntu\n', b'')
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195492.8776436-6156-242540755751785 `" && echo ansible-tmp-1775195492.8776436-6156-242540755751785="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195492.8776436-6156-242540755751785 `" ) && sleep 0'"'"''
+<3.239.234.89> (0, b'ansible-tmp-1775195492.8776436-6156-242540755751785=/home/ubuntu/.ansible/tmp/ansible-tmp-1775195492.8776436-6156-242540755751785\n', b'')
+<ec2-3-239-234-89.compute-1.amazonaws.com> Attempting python interpreter discovery
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'echo PLATFORM; uname; echo FOUND; command -v '"'"'"'"'"'"'"'"'python3.12'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.11'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.10'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.9'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.8'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/libexec/platform-python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+<3.239.234.89> (0, b'PLATFORM\nLinux\nFOUND\n/usr/bin/python3.12\n/usr/bin/python3\nENDFOUND\n', b'')
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'/usr/bin/python3.12 && sleep 0'"'"''
+<3.239.234.89> (0, b'{"platform_dist_result": [], "osrelease_content": "PRETTY_NAME=\\"Ubuntu 24.04.3 LTS\\"\\nNAME=\\"Ubuntu\\"\\nVERSION_ID=\\"24.04\\"\\nVERSION=\\"24.04.3 LTS (Noble Numbat)\\"\\nVERSION_CODENAME=noble\\nID=ubuntu\\nID_LIKE=debian\\nHOME_URL=\\"https://www.ubuntu.com/\\"\\nSUPPORT_URL=\\"https://help.ubuntu.com/\\"\\nBUG_REPORT_URL=\\"https://bugs.launchpad.net/ubuntu/\\"\\nPRIVACY_POLICY_URL=\\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\\"\\nUBUNTU_CODENAME=noble\\nLOGO=ubuntu-logo\\n"}\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/setup.py
+<3.239.234.89> PUT /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmpw9m7dcb4 TO /home/ubuntu/.ansible/tmp/ansible-tmp-1775195492.8776436-6156-242540755751785/AnsiballZ_setup.py
+<3.239.234.89> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' '[3.239.234.89]'
+<3.239.234.89> (0, b'sftp> put /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmpw9m7dcb4 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195492.8776436-6156-242540755751785/AnsiballZ_setup.py\n', b'')
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'chmod u+x /home/ubuntu/.ansible/tmp/ansible-tmp-1775195492.8776436-6156-242540755751785/ /home/ubuntu/.ansible/tmp/ansible-tmp-1775195492.8776436-6156-242540755751785/AnsiballZ_setup.py && sleep 0'"'"''
+<3.239.234.89> (0, b'', b'')
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' -tt 3.239.234.89 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-kscigizwdwvliqctaqcfoqzysqtmixtc ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195492.8776436-6156-242540755751785/AnsiballZ_setup.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<3.239.234.89> (0, b'\r\n{"ansible_facts": {"ansible_system": "Linux", "ansible_kernel": "6.14.0-1018-aws", "ansible_kernel_version": "#18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025", "ansible_machine": "x86_64", "ansible_python_version": "3.12.3", "ansible_fqdn": "ip-172-31-203-107.ec2.internal", "ansible_hostname": "ip-172-31-203-107", "ansible_nodename": "ip-172-31-203-107", "ansible_domain": "ec2.internal", "ansible_userspace_bits": "64", "ansible_architecture": "x86_64", "ansible_userspace_architecture": "x86_64", "ansible_machine_id": "ec2789d9b9b5f8e0fa34e3c444f3ae34", "ansible_user_id": "root", "ansible_user_uid": 0, "ansible_user_gid": 0, "ansible_user_gecos": "root", "ansible_user_dir": "/root", "ansible_user_shell": "/bin/bash", "ansible_real_user_id": 0, "ansible_effective_user_id": 0, "ansible_real_group_id": 0, "ansible_effective_group_id": 0, "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQDPy5XcgHNgLdrFz6JhBTXGZkXgohqhU/dj0GlQlTCOxAJskdyE+TfEUISkAPynYeCRWrYNpIUrkapgPsMCYmMjtYJ4FDGZrtSBUD1S5Do2a20f2Ye06i09Xt4T3ODzL5JAqN8Zakf3aRdzFO28vHJBJ3A3HamGHnMydK9/sFsjs1z6jb9UBqT/bx287o6meOvJHZTwfxx2dKZ+80JuX54H+G4FXWMwiVCXtUklM6ExxbuoewT8m+vKKmx5Q7zfGa4upys7u6zvzSo6TJSgon9xJjK61Ub0F07e2qQwpN0H/xXmy8IdgVqUbBSg3n55ze5oVYelLSkgd50kjBKa52wq+2xhjE2UlAPk7GT1dUjqoWL8qsw+/6qnrv5rZz4slUbWrPwf5im2pPoDZRIL50xldKrqQOpTcBI21Dnx7cUWCy66PmqSUVYZ0LXjIJT8PtH/vzlHfQjnDj9qKTXKSlxFWpeqYvSJ7+JovZnm/Ex/j79wsVZDy4jSdxpGzN42Aa8=", "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa", "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBK3rAaBljcR1p3felugrzS2w34VPGkkMriRF7YP812cKYxIbs9oAe+hF3cg04hi91IxqTGaYvR0c2cAzBw1t9sY=", "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256", "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIFRT0Asnr0y/PY0CQR3Tj5r5kxL/rYFKyGZkv/guBB6U", "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519", "ansible_python": {"version": {"major": 3, "minor": 12, "micro": 3, "releaselevel": "final", "serial": 0}, "version_info": [3, 12, 3, "final", 0], "executable": "/usr/bin/python3", "has_sslcontext": true, "type": "cpython"}, "ansible_system_capabilities_enforced": "False", "ansible_system_capabilities": [], "ansible_distribution": "Ubuntu", "ansible_distribution_release": "noble", "ansible_distribution_version": "24.04", "ansible_distribution_major_version": "24", "ansible_distribution_file_path": "/etc/os-release", "ansible_distribution_file_variety": "Debian", "ansible_distribution_file_parsed": true, "ansible_os_family": "Debian", "ansible_date_time": {"year": "2026", "month": "04", "weekday": "Friday", "weekday_number": "5", "weeknumber": "13", "day": "03", "hour": "05", "minute": "51", "second": "33", "epoch": "1775195493", "epoch_int": "1775195493", "date": "2026-04-03", "time": "05:51:33", "iso8601_micro": "2026-04-03T05:51:33.699367Z", "iso8601": "2026-04-03T05:51:33Z", "iso8601_basic": "20260403T055133699367", "iso8601_basic_short": "20260403T055133", "tz": "UTC", "tz_dst": "UTC", "tz_offset": "+0000"}, "ansible_env": {"SUDO_GID": "1000", "MAIL": "/var/mail/root", "USER": "root", "HOME": "/root", "SUDO_UID": "1000", "LOGNAME": "root", "TERM": "xterm", "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin", "LANG": "C.UTF-8", "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-kscigizwdwvliqctaqcfoqzysqtmixtc ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195492.8776436-6156-242540755751785/AnsiballZ_setup.py", "SHELL": "/bin/bash", "SUDO_USER": "ubuntu", "PWD": "/home/ubuntu"}, "ansible_fibre_channel_wwn": [], "ansible_pkg_mgr": "apt", "ansible_virtualization_role": "guest", "ansible_virtualization_type": "kvm", "ansible_virtualization_tech_guest": ["kvm"], "ansible_virtualization_tech_host": [], "ansible_is_chroot": false, "ansible_processor": ["0", "GenuineIntel", "Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz", "1", "GenuineIntel", "Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz"], "ansible_processor_count": 1, "ansible_processor_cores": 1, "ansible_processor_threads_per_core": 2, "ansible_processor_vcpus": 2, "ansible_processor_nproc": 2, "ansible_memtotal_mb": 914, "ansible_memfree_mb": 262, "ansible_swaptotal_mb": 0, "ansible_swapfree_mb": 0, "ansible_memory_mb": {"real": {"total": 914, "used": 652, "free": 262}, "nocache": {"free": 681, "used": 233}, "swap": {"total": 0, "free": 0, "used": 0, "cached": 0}}, "ansible_bios_date": "10/16/2017", "ansible_bios_vendor": "Amazon EC2", "ansible_bios_version": "1.0", "ansible_board_asset_tag": "i-0a754002fa68cafd5", "ansible_board_name": "NA", "ansible_board_serial": "NA", "ansible_board_vendor": "Amazon EC2", "ansible_board_version": "NA", "ansible_chassis_asset_tag": "Amazon EC2", "ansible_chassis_serial": "NA", "ansible_chassis_vendor": "Amazon EC2", "ansible_chassis_version": "NA", "ansible_form_factor": "Other", "ansible_product_name": "t3.micro", "ansible_product_serial": "ec2789d9-b9b5-f8e0-fa34-e3c444f3ae34", "ansible_product_uuid": "ec2789d9-b9b5-f8e0-fa34-e3c444f3ae34", "ansible_product_version": "NA", "ansible_system_vendor": "Amazon EC2", "ansible_devices": {"loop1": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "56864", "sectorsize": "512", "size": "27.77 MB", "host": "", "holders": []}, "nvme0n1": {"virtual": 1, "links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab", "nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab_1", "nvme-nvme.1d0f-766f6c3066363637613161383036636363326162-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001"], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": "Amazon Elastic Block Store", "sas_address": null, "sas_device_handle": null, "serial": "vol0f667a1a806ccc2ab", "removable": "0", "support_discard": "0", "partitions": {"nvme0n1p16": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab-part16", "nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab_1-part16", "nvme-nvme.1d0f-766f6c3066363637613161383036636363326162-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part16"], "uuids": ["d066b928-2f3b-4fe5-9761-6d12299a7d53"], "labels": ["BOOT"], "masters": []}, "start": "227328", "sectors": "1869825", "sectorsize": 512, "size": "913.00 MB", "uuid": "d066b928-2f3b-4fe5-9761-6d12299a7d53", "holders": []}, "nvme0n1p1": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab-part1", "nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab_1-part1", "nvme-nvme.1d0f-766f6c3066363637613161383036636363326162-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part1"], "uuids": ["f6fbc198-289f-487b-9a4c-c22e821c6c98"], "labels": ["cloudimg-rootfs"], "masters": []}, "start": "2099200", "sectors": "14677983", "sectorsize": 512, "size": "7.00 GB", "uuid": "f6fbc198-289f-487b-9a4c-c22e821c6c98", "holders": []}, "nvme0n1p14": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab-part14", "nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab_1-part14", "nvme-nvme.1d0f-766f6c3066363637613161383036636363326162-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part14"], "uuids": [], "labels": [], "masters": []}, "start": "2048", "sectors": "8192", "sectorsize": 512, "size": "4.00 MB", "uuid": null, "holders": []}, "nvme0n1p15": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab-part15", "nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab_1-part15", "nvme-nvme.1d0f-766f6c3066363637613161383036636363326162-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part15"], "uuids": ["872E-BD64"], "labels": ["UEFI"], "masters": []}, "start": "10240", "sectors": "217088", "sectorsize": 512, "size": "106.00 MB", "uuid": "872E-BD64", "holders": []}}, "rotational": "0", "scheduler_mode": "none", "sectors": "16777216", "sectorsize": "512", "size": "8.00 GB", "host": "Non-Volatile memory controller: Amazon.com, Inc. NVMe EBS Controller", "holders": []}, "loop6": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "0", "sectorsize": "512", "size": "0.00 Bytes", "host": "", "holders": []}, "loop4": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "98480", "sectorsize": "512", "size": "48.09 MB", "host": "", "holders": []}, "loop2": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "151456", "sectorsize": "512", "size": "73.95 MB", "host": "", "holders": []}, "loop0": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "56624", "sectorsize": "512", "size": "27.65 MB", "host": "", "holders": []}, "loop7": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "0", "sectorsize": "512", "size": "0.00 Bytes", "host": "", "holders": []}, "loop5": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "0", "sectorsize": "512", "size": "0.00 Bytes", "host": "", "holders": []}, "loop3": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "104296", "sectorsize": "512", "size": "50.93 MB", "host": "", "holders": []}}, "ansible_device_links": {"ids": {"nvme0n1p14": ["nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab-part14", "nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab_1-part14", "nvme-nvme.1d0f-766f6c3066363637613161383036636363326162-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part14"], "nvme0n1p15": ["nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab-part15", "nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab_1-part15", "nvme-nvme.1d0f-766f6c3066363637613161383036636363326162-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part15"], "nvme0n1p16": ["nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab-part16", "nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab_1-part16", "nvme-nvme.1d0f-766f6c3066363637613161383036636363326162-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part16"], "nvme0n1p1": ["nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab-part1", "nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab_1-part1", "nvme-nvme.1d0f-766f6c3066363637613161383036636363326162-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part1"], "nvme0n1": ["nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab", "nvme-Amazon_Elastic_Block_Store_vol0f667a1a806ccc2ab_1", "nvme-nvme.1d0f-766f6c3066363637613161383036636363326162-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001"]}, "uuids": {"nvme0n1p15": ["872E-BD64"], "nvme0n1p16": ["d066b928-2f3b-4fe5-9761-6d12299a7d53"], "nvme0n1p1": ["f6fbc198-289f-487b-9a4c-c22e821c6c98"]}, "labels": {"nvme0n1p15": ["UEFI"], "nvme0n1p16": ["BOOT"], "nvme0n1p1": ["cloudimg-rootfs"]}, "masters": {}}, "ansible_uptime_seconds": 283, "ansible_lvm": {"lvs": {}, "vgs": {}, "pvs": {}}, "ansible_mounts": [{"mount": "/", "device": "/dev/root", "fstype": "ext4", "options": "rw,relatime,discard,errors=remount-ro,commit=30", "size_total": 7203201024, "size_available": 4758302720, "block_size": 4096, "block_total": 1758594, "block_available": 1161695, "block_used": 596899, "inode_total": 917504, "inode_available": 833982, "inode_used": 83522, "uuid": "f6fbc198-289f-487b-9a4c-c22e821c6c98"}, {"mount": "/snap/amazon-ssm-agent/11797", "device": "/dev/loop0", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 29097984, "size_available": 0, "block_size": 131072, "block_total": 222, "block_available": 0, "block_used": 222, "inode_total": 14, "inode_available": 0, "inode_used": 14, "uuid": "N/A"}, {"mount": "/snap/amazon-ssm-agent/12322", "device": "/dev/loop1", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 29229056, "size_available": 0, "block_size": 131072, "block_total": 223, "block_available": 0, "block_used": 223, "inode_total": 14, "inode_available": 0, "inode_used": 14, "uuid": "N/A"}, {"mount": "/snap/core22/2163", "device": "/dev/loop2", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 77594624, "size_available": 0, "block_size": 131072, "block_total": 592, "block_available": 0, "block_used": 592, "inode_total": 14268, "inode_available": 0, "inode_used": 14268, "uuid": "N/A"}, {"mount": "/snap/snapd/25577", "device": "/dev/loop3", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 53477376, "size_available": 0, "block_size": 131072, "block_total": 408, "block_available": 0, "block_used": 408, "inode_total": 617, "inode_available": 0, "inode_used": 617, "uuid": "N/A"}, {"mount": "/snap/snapd/25935", "device": "/dev/loop4", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 50462720, "size_available": 0, "block_size": 131072, "block_total": 385, "block_available": 0, "block_used": 385, "inode_total": 617, "inode_available": 0, "inode_used": 617, "uuid": "N/A"}, {"mount": "/boot", "device": "/dev/nvme0n1p16", "fstype": "ext4", "options": "rw,relatime", "size_total": 923156480, "size_available": 765292544, "block_size": 4096, "block_total": 225380, "block_available": 186839, "block_used": 38541, "inode_total": 58496, "inode_available": 57895, "inode_used": 601, "uuid": "d066b928-2f3b-4fe5-9761-6d12299a7d53"}, {"mount": "/boot/efi", "device": "/dev/nvme0n1p15", "fstype": "vfat", "options": "rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro", "size_total": 109395456, "size_available": 102995968, "block_size": 512, "block_total": 213663, "block_available": 201164, "block_used": 12499, "inode_total": 0, "inode_available": 0, "inode_used": 0, "uuid": "872E-BD64"}], "ansible_fips": false, "ansible_dns": {"nameservers": ["127.0.0.53"], "options": {"edns0": true, "trust-ad": true}, "search": ["ec2.internal"]}, "ansible_interfaces": ["lo", "ens5"], "ansible_lo": {"device": "lo", "mtu": 65536, "active": true, "type": "loopback", "promisc": false, "ipv4": {"address": "127.0.0.1", "broadcast": "", "netmask": "255.0.0.0", "network": "127.0.0.0", "prefix": "8"}, "ipv6": [{"address": "::1", "prefix": "128", "scope": "host"}], "features": {"rx_checksumming": "on [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "off [fixed]", "tx_checksum_ip_generic": "on [fixed]", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "on [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on [fixed]", "tx_scatter_gather_fraglist": "on [fixed]", "tcp_segmentation_offload": "on", "tx_tcp_segmentation": "on", "tx_tcp_ecn_segmentation": "on", "tx_tcp_mangleid_segmentation": "on", "tx_tcp6_segmentation": "on", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "off [fixed]", "highdma": "on [fixed]", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "on [fixed]", "tx_gso_robust": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_tunnel_remcsum_segmentation": "off [fixed]", "tx_sctp_segmentation": "on", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "on", "tx_gso_list": "on", "tx_nocache_copy": "off [fixed]", "loopback": "on [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]", "rx_gro_list": "off", "macsec_hw_offload": "off [fixed]", "rx_udp_gro_forwarding": "off", "hsr_tag_ins_offload": "off [fixed]", "hsr_tag_rm_offload": "off [fixed]", "hsr_fwd_offload": "off [fixed]", "hsr_dup_offload": "off [fixed]"}, "timestamping": [], "hw_timestamp_filters": []}, "ansible_ens5": {"device": "ens5", "macaddress": "02:9f:4f:2e:90:53", "mtu": 9001, "active": true, "module": "ena", "type": "ether", "pciid": "0000:00:05.0", "promisc": false, "ipv4": {"address": "172.31.203.107", "broadcast": "", "netmask": "255.255.0.0", "network": "172.31.0.0", "prefix": "16"}, "ipv6": [{"address": "fe80::9f:4fff:fe2e:9053", "prefix": "64", "scope": "link"}], "features": {"rx_checksumming": "off [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "on", "tx_checksum_ip_generic": "off [fixed]", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "off [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on", "tx_scatter_gather_fraglist": "off [fixed]", "tcp_segmentation_offload": "off", "tx_tcp_segmentation": "off [fixed]", "tx_tcp_ecn_segmentation": "off [fixed]", "tx_tcp_mangleid_segmentation": "off [fixed]", "tx_tcp6_segmentation": "off [fixed]", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "on", "highdma": "on", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "off [fixed]", "tx_gso_robust": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_tunnel_remcsum_segmentation": "off [fixed]", "tx_sctp_segmentation": "off [fixed]", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "off [fixed]", "tx_gso_list": "off [fixed]", "tx_nocache_copy": "off", "loopback": "off [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]", "rx_gro_list": "off", "macsec_hw_offload": "off [fixed]", "rx_udp_gro_forwarding": "off", "hsr_tag_ins_offload": "off [fixed]", "hsr_tag_rm_offload": "off [fixed]", "hsr_fwd_offload": "off [fixed]", "hsr_dup_offload": "off [fixed]"}, "timestamping": [], "hw_timestamp_filters": []}, "ansible_default_ipv4": {"gateway": "172.31.0.1", "interface": "ens5", "address": "172.31.203.107", "broadcast": "", "netmask": "255.255.0.0", "network": "172.31.0.0", "prefix": "16", "macaddress": "02:9f:4f:2e:90:53", "mtu": 9001, "type": "ether", "alias": "ens5"}, "ansible_default_ipv6": {}, "ansible_all_ipv4_addresses": ["172.31.203.107"], "ansible_all_ipv6_addresses": ["fe80::9f:4fff:fe2e:9053"], "ansible_locally_reachable_ips": {"ipv4": ["127.0.0.0/8", "127.0.0.1", "172.31.203.107"], "ipv6": ["::1", "fe80::9f:4fff:fe2e:9053"]}, "ansible_cmdline": {"BOOT_IMAGE": "/vmlinuz-6.14.0-1018-aws", "root": "PARTUUID=2baf9194-a5fb-4b12-adb0-45166f0feb06", "ro": true, "console": "ttyS0", "nvme_core.io_timeout": "4294967295", "panic": "-1"}, "ansible_proc_cmdline": {"BOOT_IMAGE": "/vmlinuz-6.14.0-1018-aws", "root": "PARTUUID=2baf9194-a5fb-4b12-adb0-45166f0feb06", "ro": true, "console": ["tty1", "ttyS0"], "nvme_core.io_timeout": "4294967295", "panic": "-1"}, "ansible_lsb": {"id": "Ubuntu", "description": "Ubuntu 24.04.3 LTS", "release": "24.04", "codename": "noble", "major_release": "24"}, "ansible_selinux_python_present": true, "ansible_selinux": {"status": "disabled"}, "ansible_local": {}, "ansible_hostnqn": "", "ansible_apparmor": {"status": "enabled"}, "ansible_iscsi_iqn": "", "ansible_loadavg": {"1m": 0.09912109375, "5m": 0.07373046875, "15m": 0.0244140625}, "ansible_service_mgr": "systemd", "gather_subset": ["all"], "module_setup": true}, "invocation": {"module_args": {"gather_subset": ["all"], "gather_timeout": 10, "filter": [], "fact_path": "/etc/ansible/facts.d"}}}\r\n', b'Shared connection to 3.239.234.89 closed.\r\n')
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1775195492.8776436-6156-242540755751785/ > /dev/null 2>&1 && sleep 0'"'"''
+<3.239.234.89> (0, b'', b'')
+ok: [ec2-3-239-234-89.compute-1.amazonaws.com]
+
+TASK [apache : Install apache2] ************************************************
+task path: /home/ubuntu/ansible-project/roles/apache/tasks/main.yml:1
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<3.239.234.89> (0, b'/home/ubuntu\n', b'')
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195494.3179955-6169-68783564864414 `" && echo ansible-tmp-1775195494.3179955-6169-68783564864414="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195494.3179955-6169-68783564864414 `" ) && sleep 0'"'"''
+<3.239.234.89> (0, b'ansible-tmp-1775195494.3179955-6169-68783564864414=/home/ubuntu/.ansible/tmp/ansible-tmp-1775195494.3179955-6169-68783564864414\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/apt.py
+<3.239.234.89> PUT /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmp4plvv4uu TO /home/ubuntu/.ansible/tmp/ansible-tmp-1775195494.3179955-6169-68783564864414/AnsiballZ_apt.py
+<3.239.234.89> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' '[3.239.234.89]'
+<3.239.234.89> (0, b'sftp> put /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmp4plvv4uu /home/ubuntu/.ansible/tmp/ansible-tmp-1775195494.3179955-6169-68783564864414/AnsiballZ_apt.py\n', b'')
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'chmod u+x /home/ubuntu/.ansible/tmp/ansible-tmp-1775195494.3179955-6169-68783564864414/ /home/ubuntu/.ansible/tmp/ansible-tmp-1775195494.3179955-6169-68783564864414/AnsiballZ_apt.py && sleep 0'"'"''
+<3.239.234.89> (0, b'', b'')
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' -tt 3.239.234.89 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-sutfcsraxpxjlzsjakischvinjggsvnj ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195494.3179955-6169-68783564864414/AnsiballZ_apt.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<3.239.234.89> (0, b'\r\n{"changed": false, "cache_updated": true, "cache_update_time": 1775195495, "invocation": {"module_args": {"name": "apache2", "state": "present", "update_cache": true, "package": ["apache2"], "update_cache_retries": 5, "update_cache_retry_max_delay": 12, "cache_valid_time": 0, "purge": false, "force": false, "upgrade": null, "dpkg_options": "force-confdef,force-confold", "autoremove": false, "autoclean": false, "fail_on_autoremove": false, "only_upgrade": false, "force_apt_get": false, "clean": false, "allow_unauthenticated": false, "allow_downgrade": false, "allow_change_held_packages": false, "lock_timeout": 60, "deb": null, "default_release": null, "install_recommends": null, "policy_rc_d": null}}}\r\n', b'Shared connection to 3.239.234.89 closed.\r\n')
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1775195494.3179955-6169-68783564864414/ > /dev/null 2>&1 && sleep 0'"'"''
+<3.239.234.89> (0, b'', b'')
+ok: [ec2-3-239-234-89.compute-1.amazonaws.com] => {
+    "cache_update_time": 1775195495,
+    "cache_updated": true,
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "allow_change_held_packages": false,
+            "allow_downgrade": false,
+            "allow_unauthenticated": false,
+            "autoclean": false,
+            "autoremove": false,
+            "cache_valid_time": 0,
+            "clean": false,
+            "deb": null,
+            "default_release": null,
+            "dpkg_options": "force-confdef,force-confold",
+            "fail_on_autoremove": false,
+            "force": false,
+            "force_apt_get": false,
+            "install_recommends": null,
+            "lock_timeout": 60,
+            "name": "apache2",
+            "only_upgrade": false,
+            "package": [
+                "apache2"
+            ],
+            "policy_rc_d": null,
+            "purge": false,
+            "state": "present",
+            "update_cache": true,
+            "update_cache_retries": 5,
+            "update_cache_retry_max_delay": 12,
+            "upgrade": null
+        }
+    }
+}
+
+TASK [apache : Start apache2] **************************************************
+task path: /home/ubuntu/ansible-project/roles/apache/tasks/main.yml:7
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<3.239.234.89> (0, b'/home/ubuntu\n', b'')
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195496.74768-6177-51668789638372 `" && echo ansible-tmp-1775195496.74768-6177-51668789638372="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195496.74768-6177-51668789638372 `" ) && sleep 0'"'"''
+<3.239.234.89> (0, b'ansible-tmp-1775195496.74768-6177-51668789638372=/home/ubuntu/.ansible/tmp/ansible-tmp-1775195496.74768-6177-51668789638372\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/systemd.py
+<3.239.234.89> PUT /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmpnbdrkp6k TO /home/ubuntu/.ansible/tmp/ansible-tmp-1775195496.74768-6177-51668789638372/AnsiballZ_systemd.py
+<3.239.234.89> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' '[3.239.234.89]'
+<3.239.234.89> (0, b'sftp> put /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmpnbdrkp6k /home/ubuntu/.ansible/tmp/ansible-tmp-1775195496.74768-6177-51668789638372/AnsiballZ_systemd.py\n', b'')
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'chmod u+x /home/ubuntu/.ansible/tmp/ansible-tmp-1775195496.74768-6177-51668789638372/ /home/ubuntu/.ansible/tmp/ansible-tmp-1775195496.74768-6177-51668789638372/AnsiballZ_systemd.py && sleep 0'"'"''
+<3.239.234.89> (0, b'', b'')
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' -tt 3.239.234.89 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-qrsewvrutqoxhszzupwwjkksvzzdlxoz ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195496.74768-6177-51668789638372/AnsiballZ_systemd.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<3.239.234.89> (0, b'\r\n{"name": "apache2", "changed": false, "status": {"Type": "forking", "ExitType": "main", "Restart": "on-abort", "RestartMode": "normal", "NotifyAccess": "none", "RestartUSec": "100ms", "RestartSteps": "0", "RestartMaxDelayUSec": "infinity", "RestartUSecNext": "100ms", "TimeoutStartUSec": "1min 30s", "TimeoutStopUSec": "1min 30s", "TimeoutAbortUSec": "1min 30s", "TimeoutStartFailureMode": "terminate", "TimeoutStopFailureMode": "terminate", "RuntimeMaxUSec": "infinity", "RuntimeRandomizedExtraUSec": "0", "WatchdogUSec": "0", "WatchdogTimestampMonotonic": "0", "RootDirectoryStartOnly": "no", "RemainAfterExit": "no", "GuessMainPID": "yes", "MainPID": "563", "ControlPID": "0", "FileDescriptorStoreMax": "0", "NFileDescriptorStore": "0", "FileDescriptorStorePreserve": "restart", "StatusErrno": "0", "Result": "success", "ReloadResult": "success", "CleanResult": "success", "UID": "[not set]", "GID": "[not set]", "NRestarts": "0", "OOMPolicy": "continue", "ReloadSignal": "1", "ExecMainStartTimestamp": "Fri 2026-04-03 05:46:56 UTC", "ExecMainStartTimestampMonotonic": "7389337", "ExecMainExitTimestampMonotonic": "0", "ExecMainPID": "563", "ExecMainCode": "0", "ExecMainStatus": "0", "ExecStart": "{ path=/usr/sbin/apachectl ; argv[]=/usr/sbin/apachectl start ; ignore_errors=no ; start_time=[Fri 2026-04-03 05:46:56 UTC] ; stop_time=[Fri 2026-04-03 05:46:56 UTC] ; pid=529 ; code=exited ; status=0 }", "ExecStartEx": "{ path=/usr/sbin/apachectl ; argv[]=/usr/sbin/apachectl start ; flags= ; start_time=[Fri 2026-04-03 05:46:56 UTC] ; stop_time=[Fri 2026-04-03 05:46:56 UTC] ; pid=529 ; code=exited ; status=0 }", "ExecReload": "{ path=/usr/sbin/apachectl ; argv[]=/usr/sbin/apachectl graceful ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecReloadEx": "{ path=/usr/sbin/apachectl ; argv[]=/usr/sbin/apachectl graceful ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecStop": "{ path=/usr/sbin/apachectl ; argv[]=/usr/sbin/apachectl graceful-stop ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecStopEx": "{ path=/usr/sbin/apachectl ; argv[]=/usr/sbin/apachectl graceful-stop ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "Slice": "system.slice", "ControlGroup": "/system.slice/apache2.service", "ControlGroupId": "2672", "MemoryCurrent": "7921664", "MemoryPeak": "8548352", "MemorySwapCurrent": "0", "MemorySwapPeak": "0", "MemoryZSwapCurrent": "0", "MemoryAvailable": "550723584", "CPUUsageNSec": "77157000", "TasksCurrent": "55", "IPIngressBytes": "[no data]", "IPIngressPackets": "[no data]", "IPEgressBytes": "[no data]", "IPEgressPackets": "[no data]", "IOReadBytes": "[not set]", "IOReadOperations": "[not set]", "IOWriteBytes": "[not set]", "IOWriteOperations": "[not set]", "Delegate": "no", "CPUAccounting": "yes", "CPUWeight": "[not set]", "StartupCPUWeight": "[not set]", "CPUShares": "[not set]", "StartupCPUShares": "[not set]", "CPUQuotaPerSecUSec": "infinity", "CPUQuotaPeriodUSec": "infinity", "IOAccounting": "no", "IOWeight": "[not set]", "StartupIOWeight": "[not set]", "BlockIOAccounting": "no", "BlockIOWeight": "[not set]", "StartupBlockIOWeight": "[not set]", "MemoryAccounting": "yes", "DefaultMemoryLow": "0", "DefaultStartupMemoryLow": "0", "DefaultMemoryMin": "0", "MemoryMin": "0", "MemoryLow": "0", "StartupMemoryLow": "0", "MemoryHigh": "infinity", "StartupMemoryHigh": "infinity", "MemoryMax": "infinity", "StartupMemoryMax": "infinity", "MemorySwapMax": "infinity", "StartupMemorySwapMax": "infinity", "MemoryZSwapMax": "infinity", "StartupMemoryZSwapMax": "infinity", "MemoryLimit": "infinity", "DevicePolicy": "auto", "TasksAccounting": "yes", "TasksMax": "1017", "IPAccounting": "no", "ManagedOOMSwap": "auto", "ManagedOOMMemoryPressure": "auto", "ManagedOOMMemoryPressureLimit": "0", "ManagedOOMPreference": "none", "MemoryPressureWatch": "auto", "MemoryPressureThresholdUSec": "200ms", "CoredumpReceive": "no", "Environment": "APACHE_STARTED_BY_SYSTEMD=true", "UMask": "0022", "LimitCPU": "infinity", "LimitCPUSoft": "infinity", "LimitFSIZE": "infinity", "LimitFSIZESoft": "infinity", "LimitDATA": "infinity", "LimitDATASoft": "infinity", "LimitSTACK": "infinity", "LimitSTACKSoft": "8388608", "LimitCORE": "infinity", "LimitCORESoft": "0", "LimitRSS": "infinity", "LimitRSSSoft": "infinity", "LimitNOFILE": "524288", "LimitNOFILESoft": "1024", "LimitAS": "infinity", "LimitASSoft": "infinity", "LimitNPROC": "3392", "LimitNPROCSoft": "3392", "LimitMEMLOCK": "8388608", "LimitMEMLOCKSoft": "8388608", "LimitLOCKS": "infinity", "LimitLOCKSSoft": "infinity", "LimitSIGPENDING": "3392", "LimitSIGPENDINGSoft": "3392", "LimitMSGQUEUE": "819200", "LimitMSGQUEUESoft": "819200", "LimitNICE": "0", "LimitNICESoft": "0", "LimitRTPRIO": "0", "LimitRTPRIOSoft": "0", "LimitRTTIME": "infinity", "LimitRTTIMESoft": "infinity", "RootEphemeral": "no", "OOMScoreAdjust": "0", "CoredumpFilter": "0x33", "Nice": "0", "IOSchedulingClass": "2", "IOSchedulingPriority": "4", "CPUSchedulingPolicy": "0", "CPUSchedulingPriority": "0", "CPUAffinityFromNUMA": "no", "NUMAPolicy": "n/a", "TimerSlackNSec": "50000", "CPUSchedulingResetOnFork": "no", "NonBlocking": "no", "StandardInput": "null", "StandardOutput": "journal", "StandardError": "inherit", "TTYReset": "no", "TTYVHangup": "no", "TTYVTDisallocate": "no", "SyslogPriority": "30", "SyslogLevelPrefix": "yes", "SyslogLevel": "6", "SyslogFacility": "3", "LogLevelMax": "-1", "LogRateLimitIntervalUSec": "0", "LogRateLimitBurst": "0", "SecureBits": "0", "CapabilityBoundingSet": "cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore", "DynamicUser": "no", "SetLoginEnvironment": "no", "RemoveIPC": "no", "PrivateTmp": "yes", "PrivateDevices": "no", "ProtectClock": "no", "ProtectKernelTunables": "no", "ProtectKernelModules": "no", "ProtectKernelLogs": "no", "ProtectControlGroups": "no", "PrivateNetwork": "no", "PrivateUsers": "no", "PrivateMounts": "no", "PrivateIPC": "no", "ProtectHome": "no", "ProtectSystem": "no", "SameProcessGroup": "no", "UtmpMode": "init", "IgnoreSIGPIPE": "yes", "NoNewPrivileges": "no", "SystemCallErrorNumber": "2147483646", "LockPersonality": "no", "RuntimeDirectoryPreserve": "no", "RuntimeDirectoryMode": "0755", "StateDirectoryMode": "0755", "CacheDirectoryMode": "0755", "LogsDirectoryMode": "0755", "ConfigurationDirectoryMode": "0755", "TimeoutCleanUSec": "infinity", "MemoryDenyWriteExecute": "no", "RestrictRealtime": "no", "RestrictSUIDSGID": "no", "RestrictNamespaces": "no", "MountAPIVFS": "no", "KeyringMode": "private", "ProtectProc": "default", "ProcSubset": "all", "ProtectHostname": "no", "MemoryKSM": "no", "RootImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "MountImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "ExtensionImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "KillMode": "mixed", "KillSignal": "15", "RestartKillSignal": "15", "FinalKillSignal": "9", "SendSIGKILL": "yes", "SendSIGHUP": "no", "WatchdogSignal": "6", "Id": "apache2.service", "Names": "apache2.service", "Requires": "-.mount system.slice sysinit.target", "Wants": "tmp.mount", "WantedBy": "multi-user.target", "Conflicts": "shutdown.target", "Before": "multi-user.target shutdown.target", "After": "systemd-tmpfiles-setup.service systemd-journald.socket remote-fs.target sysinit.target network.target basic.target -.mount nss-lookup.target system.slice tmp.mount", "RequiresMountsFor": "/var/tmp", "Documentation": "https://httpd.apache.org/docs/2.4/", "Description": "The Apache HTTP Server", "LoadState": "loaded", "ActiveState": "active", "FreezerState": "running", "SubState": "running", "FragmentPath": "/usr/lib/systemd/system/apache2.service", "UnitFileState": "enabled", "UnitFilePreset": "enabled", "StateChangeTimestamp": "Fri 2026-04-03 05:46:56 UTC", "StateChangeTimestampMonotonic": "7389387", "InactiveExitTimestamp": "Fri 2026-04-03 05:46:56 UTC", "InactiveExitTimestampMonotonic": "6904574", "ActiveEnterTimestamp": "Fri 2026-04-03 05:46:56 UTC", "ActiveEnterTimestampMonotonic": "7389387", "ActiveExitTimestampMonotonic": "0", "InactiveEnterTimestampMonotonic": "0", "CanStart": "yes", "CanStop": "yes", "CanReload": "yes", "CanIsolate": "no", "CanFreeze": "yes", "StopWhenUnneeded": "no", "RefuseManualStart": "no", "RefuseManualStop": "no", "AllowIsolate": "no", "DefaultDependencies": "yes", "SurviveFinalKillSignal": "no", "OnSuccessJobMode": "fail", "OnFailureJobMode": "replace", "IgnoreOnIsolate": "no", "NeedDaemonReload": "no", "JobTimeoutUSec": "infinity", "JobRunningTimeoutUSec": "infinity", "JobTimeoutAction": "none", "ConditionResult": "yes", "AssertResult": "yes", "ConditionTimestamp": "Fri 2026-04-03 05:46:56 UTC", "ConditionTimestampMonotonic": "6902706", "AssertTimestamp": "Fri 2026-04-03 05:46:56 UTC", "AssertTimestampMonotonic": "6902708", "Transient": "no", "Perpetual": "no", "StartLimitIntervalUSec": "10s", "StartLimitBurst": "5", "StartLimitAction": "none", "FailureAction": "none", "SuccessAction": "none", "InvocationID": "45fd5c876c9447e2b608f497e9fb4769", "CollectMode": "inactive"}, "state": "started", "invocation": {"module_args": {"name": "apache2", "state": "started", "daemon_reload": false, "daemon_reexec": false, "scope": "system", "no_block": false, "enabled": null, "force": null, "masked": null}}}\r\n', b'Shared connection to 3.239.234.89 closed.\r\n')
+<3.239.234.89> ESTABLISH SSH CONNECTION FOR USER: None
+<3.239.234.89> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/c0d735a172"' 3.239.234.89 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1775195496.74768-6177-51668789638372/ > /dev/null 2>&1 && sleep 0'"'"''
+<3.239.234.89> (0, b'', b'')
+ok: [ec2-3-239-234-89.compute-1.amazonaws.com] => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "daemon_reexec": false,
+            "daemon_reload": false,
+            "enabled": null,
+            "force": null,
+            "masked": null,
+            "name": "apache2",
+            "no_block": false,
+            "scope": "system",
+            "state": "started"
+        }
+    },
+    "name": "apache2",
+    "state": "started",
+    "status": {
+        "ActiveEnterTimestamp": "Fri 2026-04-03 05:46:56 UTC",
+        "ActiveEnterTimestampMonotonic": "7389387",
+        "ActiveExitTimestampMonotonic": "0",
+        "ActiveState": "active",
+        "After": "systemd-tmpfiles-setup.service systemd-journald.socket remote-fs.target sysinit.target network.target basic.target -.mount nss-lookup.target system.slice tmp.mount",
+        "AllowIsolate": "no",
+        "AssertResult": "yes",
+        "AssertTimestamp": "Fri 2026-04-03 05:46:56 UTC",
+        "AssertTimestampMonotonic": "6902708",
+        "Before": "multi-user.target shutdown.target",
+        "BlockIOAccounting": "no",
+        "BlockIOWeight": "[not set]",
+        "CPUAccounting": "yes",
+        "CPUAffinityFromNUMA": "no",
+        "CPUQuotaPerSecUSec": "infinity",
+        "CPUQuotaPeriodUSec": "infinity",
+        "CPUSchedulingPolicy": "0",
+        "CPUSchedulingPriority": "0",
+        "CPUSchedulingResetOnFork": "no",
+        "CPUShares": "[not set]",
+        "CPUUsageNSec": "77157000",
+        "CPUWeight": "[not set]",
+        "CacheDirectoryMode": "0755",
+        "CanFreeze": "yes",
+        "CanIsolate": "no",
+        "CanReload": "yes",
+        "CanStart": "yes",
+        "CanStop": "yes",
+        "CapabilityBoundingSet": "cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore",
+        "CleanResult": "success",
+        "CollectMode": "inactive",
+        "ConditionResult": "yes",
+        "ConditionTimestamp": "Fri 2026-04-03 05:46:56 UTC",
+        "ConditionTimestampMonotonic": "6902706",
+        "ConfigurationDirectoryMode": "0755",
+        "Conflicts": "shutdown.target",
+        "ControlGroup": "/system.slice/apache2.service",
+        "ControlGroupId": "2672",
+        "ControlPID": "0",
+        "CoredumpFilter": "0x33",
+        "CoredumpReceive": "no",
+        "DefaultDependencies": "yes",
+        "DefaultMemoryLow": "0",
+        "DefaultMemoryMin": "0",
+        "DefaultStartupMemoryLow": "0",
+        "Delegate": "no",
+        "Description": "The Apache HTTP Server",
+        "DevicePolicy": "auto",
+        "Documentation": "https://httpd.apache.org/docs/2.4/",
+        "DynamicUser": "no",
+        "Environment": "APACHE_STARTED_BY_SYSTEMD=true",
+        "ExecMainCode": "0",
+        "ExecMainExitTimestampMonotonic": "0",
+        "ExecMainPID": "563",
+        "ExecMainStartTimestamp": "Fri 2026-04-03 05:46:56 UTC",
+        "ExecMainStartTimestampMonotonic": "7389337",
+        "ExecMainStatus": "0",
+        "ExecReload": "{ path=/usr/sbin/apachectl ; argv[]=/usr/sbin/apachectl graceful ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecReloadEx": "{ path=/usr/sbin/apachectl ; argv[]=/usr/sbin/apachectl graceful ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStart": "{ path=/usr/sbin/apachectl ; argv[]=/usr/sbin/apachectl start ; ignore_errors=no ; start_time=[Fri 2026-04-03 05:46:56 UTC] ; stop_time=[Fri 2026-04-03 05:46:56 UTC] ; pid=529 ; code=exited ; status=0 }",
+        "ExecStartEx": "{ path=/usr/sbin/apachectl ; argv[]=/usr/sbin/apachectl start ; flags= ; start_time=[Fri 2026-04-03 05:46:56 UTC] ; stop_time=[Fri 2026-04-03 05:46:56 UTC] ; pid=529 ; code=exited ; status=0 }",
+        "ExecStop": "{ path=/usr/sbin/apachectl ; argv[]=/usr/sbin/apachectl graceful-stop ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStopEx": "{ path=/usr/sbin/apachectl ; argv[]=/usr/sbin/apachectl graceful-stop ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExitType": "main",
+        "ExtensionImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "FailureAction": "none",
+        "FileDescriptorStoreMax": "0",
+        "FileDescriptorStorePreserve": "restart",
+        "FinalKillSignal": "9",
+        "FragmentPath": "/usr/lib/systemd/system/apache2.service",
+        "FreezerState": "running",
+        "GID": "[not set]",
+        "GuessMainPID": "yes",
+        "IOAccounting": "no",
+        "IOReadBytes": "[not set]",
+        "IOReadOperations": "[not set]",
+        "IOSchedulingClass": "2",
+        "IOSchedulingPriority": "4",
+        "IOWeight": "[not set]",
+        "IOWriteBytes": "[not set]",
+        "IOWriteOperations": "[not set]",
+        "IPAccounting": "no",
+        "IPEgressBytes": "[no data]",
+        "IPEgressPackets": "[no data]",
+        "IPIngressBytes": "[no data]",
+        "IPIngressPackets": "[no data]",
+        "Id": "apache2.service",
+        "IgnoreOnIsolate": "no",
+        "IgnoreSIGPIPE": "yes",
+        "InactiveEnterTimestampMonotonic": "0",
+        "InactiveExitTimestamp": "Fri 2026-04-03 05:46:56 UTC",
+        "InactiveExitTimestampMonotonic": "6904574",
+        "InvocationID": "45fd5c876c9447e2b608f497e9fb4769",
+        "JobRunningTimeoutUSec": "infinity",
+        "JobTimeoutAction": "none",
+        "JobTimeoutUSec": "infinity",
+        "KeyringMode": "private",
+        "KillMode": "mixed",
+        "KillSignal": "15",
+        "LimitAS": "infinity",
+        "LimitASSoft": "infinity",
+        "LimitCORE": "infinity",
+        "LimitCORESoft": "0",
+        "LimitCPU": "infinity",
+        "LimitCPUSoft": "infinity",
+        "LimitDATA": "infinity",
+        "LimitDATASoft": "infinity",
+        "LimitFSIZE": "infinity",
+        "LimitFSIZESoft": "infinity",
+        "LimitLOCKS": "infinity",
+        "LimitLOCKSSoft": "infinity",
+        "LimitMEMLOCK": "8388608",
+        "LimitMEMLOCKSoft": "8388608",
+        "LimitMSGQUEUE": "819200",
+        "LimitMSGQUEUESoft": "819200",
+        "LimitNICE": "0",
+        "LimitNICESoft": "0",
+        "LimitNOFILE": "524288",
+        "LimitNOFILESoft": "1024",
+        "LimitNPROC": "3392",
+        "LimitNPROCSoft": "3392",
+        "LimitRSS": "infinity",
+        "LimitRSSSoft": "infinity",
+        "LimitRTPRIO": "0",
+        "LimitRTPRIOSoft": "0",
+        "LimitRTTIME": "infinity",
+        "LimitRTTIMESoft": "infinity",
+        "LimitSIGPENDING": "3392",
+        "LimitSIGPENDINGSoft": "3392",
+        "LimitSTACK": "infinity",
+        "LimitSTACKSoft": "8388608",
+        "LoadState": "loaded",
+        "LockPersonality": "no",
+        "LogLevelMax": "-1",
+        "LogRateLimitBurst": "0",
+        "LogRateLimitIntervalUSec": "0",
+        "LogsDirectoryMode": "0755",
+        "MainPID": "563",
+        "ManagedOOMMemoryPressure": "auto",
+        "ManagedOOMMemoryPressureLimit": "0",
+        "ManagedOOMPreference": "none",
+        "ManagedOOMSwap": "auto",
+        "MemoryAccounting": "yes",
+        "MemoryAvailable": "550723584",
+        "MemoryCurrent": "7921664",
+        "MemoryDenyWriteExecute": "no",
+        "MemoryHigh": "infinity",
+        "MemoryKSM": "no",
+        "MemoryLimit": "infinity",
+        "MemoryLow": "0",
+        "MemoryMax": "infinity",
+        "MemoryMin": "0",
+        "MemoryPeak": "8548352",
+        "MemoryPressureThresholdUSec": "200ms",
+        "MemoryPressureWatch": "auto",
+        "MemorySwapCurrent": "0",
+        "MemorySwapMax": "infinity",
+        "MemorySwapPeak": "0",
+        "MemoryZSwapCurrent": "0",
+        "MemoryZSwapMax": "infinity",
+        "MountAPIVFS": "no",
+        "MountImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "NFileDescriptorStore": "0",
+        "NRestarts": "0",
+        "NUMAPolicy": "n/a",
+        "Names": "apache2.service",
+        "NeedDaemonReload": "no",
+        "Nice": "0",
+        "NoNewPrivileges": "no",
+        "NonBlocking": "no",
+        "NotifyAccess": "none",
+        "OOMPolicy": "continue",
+        "OOMScoreAdjust": "0",
+        "OnFailureJobMode": "replace",
+        "OnSuccessJobMode": "fail",
+        "Perpetual": "no",
+        "PrivateDevices": "no",
+        "PrivateIPC": "no",
+        "PrivateMounts": "no",
+        "PrivateNetwork": "no",
+        "PrivateTmp": "yes",
+        "PrivateUsers": "no",
+        "ProcSubset": "all",
+        "ProtectClock": "no",
+        "ProtectControlGroups": "no",
+        "ProtectHome": "no",
+        "ProtectHostname": "no",
+        "ProtectKernelLogs": "no",
+        "ProtectKernelModules": "no",
+        "ProtectKernelTunables": "no",
+        "ProtectProc": "default",
+        "ProtectSystem": "no",
+        "RefuseManualStart": "no",
+        "RefuseManualStop": "no",
+        "ReloadResult": "success",
+        "ReloadSignal": "1",
+        "RemainAfterExit": "no",
+        "RemoveIPC": "no",
+        "Requires": "-.mount system.slice sysinit.target",
+        "RequiresMountsFor": "/var/tmp",
+        "Restart": "on-abort",
+        "RestartKillSignal": "15",
+        "RestartMaxDelayUSec": "infinity",
+        "RestartMode": "normal",
+        "RestartSteps": "0",
+        "RestartUSec": "100ms",
+        "RestartUSecNext": "100ms",
+        "RestrictNamespaces": "no",
+        "RestrictRealtime": "no",
+        "RestrictSUIDSGID": "no",
+        "Result": "success",
+        "RootDirectoryStartOnly": "no",
+        "RootEphemeral": "no",
+        "RootImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "RuntimeDirectoryMode": "0755",
+        "RuntimeDirectoryPreserve": "no",
+        "RuntimeMaxUSec": "infinity",
+        "RuntimeRandomizedExtraUSec": "0",
+        "SameProcessGroup": "no",
+        "SecureBits": "0",
+        "SendSIGHUP": "no",
+        "SendSIGKILL": "yes",
+        "SetLoginEnvironment": "no",
+        "Slice": "system.slice",
+        "StandardError": "inherit",
+        "StandardInput": "null",
+        "StandardOutput": "journal",
+        "StartLimitAction": "none",
+        "StartLimitBurst": "5",
+        "StartLimitIntervalUSec": "10s",
+        "StartupBlockIOWeight": "[not set]",
+        "StartupCPUShares": "[not set]",
+        "StartupCPUWeight": "[not set]",
+        "StartupIOWeight": "[not set]",
+        "StartupMemoryHigh": "infinity",
+        "StartupMemoryLow": "0",
+        "StartupMemoryMax": "infinity",
+        "StartupMemorySwapMax": "infinity",
+        "StartupMemoryZSwapMax": "infinity",
+        "StateChangeTimestamp": "Fri 2026-04-03 05:46:56 UTC",
+        "StateChangeTimestampMonotonic": "7389387",
+        "StateDirectoryMode": "0755",
+        "StatusErrno": "0",
+        "StopWhenUnneeded": "no",
+        "SubState": "running",
+        "SuccessAction": "none",
+        "SurviveFinalKillSignal": "no",
+        "SyslogFacility": "3",
+        "SyslogLevel": "6",
+        "SyslogLevelPrefix": "yes",
+        "SyslogPriority": "30",
+        "SystemCallErrorNumber": "2147483646",
+        "TTYReset": "no",
+        "TTYVHangup": "no",
+        "TTYVTDisallocate": "no",
+        "TasksAccounting": "yes",
+        "TasksCurrent": "55",
+        "TasksMax": "1017",
+        "TimeoutAbortUSec": "1min 30s",
+        "TimeoutCleanUSec": "infinity",
+        "TimeoutStartFailureMode": "terminate",
+        "TimeoutStartUSec": "1min 30s",
+        "TimeoutStopFailureMode": "terminate",
+        "TimeoutStopUSec": "1min 30s",
+        "TimerSlackNSec": "50000",
+        "Transient": "no",
+        "Type": "forking",
+        "UID": "[not set]",
+        "UMask": "0022",
+        "UnitFilePreset": "enabled",
+        "UnitFileState": "enabled",
+        "UtmpMode": "init",
+        "WantedBy": "multi-user.target",
+        "Wants": "tmp.mount",
+        "WatchdogSignal": "6",
+        "WatchdogTimestampMonotonic": "0",
+        "WatchdogUSec": "0"
+    }
+}
+
+PLAY [Configure Nginx server] **************************************************
+
+TASK [Gathering Facts] *********************************************************
+task path: /home/ubuntu/ansible-project/site.yml:7
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<44.201.23.135> (0, b'/home/ubuntu\n', b'')
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.562362-6187-753764055148 `" && echo ansible-tmp-1775195498.562362-6187-753764055148="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.562362-6187-753764055148 `" ) && sleep 0'"'"''
+<44.201.23.135> (0, b'ansible-tmp-1775195498.562362-6187-753764055148=/home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.562362-6187-753764055148\n', b'')
+<ec2-44-201-23-135.compute-1.amazonaws.com> Attempting python interpreter discovery
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'echo PLATFORM; uname; echo FOUND; command -v '"'"'"'"'"'"'"'"'python3.12'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.11'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.10'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.9'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.8'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/libexec/platform-python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+<44.201.23.135> (0, b'PLATFORM\nLinux\nFOUND\n/usr/bin/python3.12\n/usr/bin/python3\nENDFOUND\n', b'')
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'/usr/bin/python3.12 && sleep 0'"'"''
+<44.204.131.128> (0, b'/home/ubuntu\n', b'')
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.615402-6186-30393960624145 `" && echo ansible-tmp-1775195498.615402-6186-30393960624145="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.615402-6186-30393960624145 `" ) && sleep 0'"'"''
+<44.204.131.128> (0, b'ansible-tmp-1775195498.615402-6186-30393960624145=/home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.615402-6186-30393960624145\n', b'')
+<ec2-44-204-131-128.compute-1.amazonaws.com> Attempting python interpreter discovery
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'echo PLATFORM; uname; echo FOUND; command -v '"'"'"'"'"'"'"'"'python3.12'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.11'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.10'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.9'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.8'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/libexec/platform-python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+<44.201.23.135> (0, b'{"platform_dist_result": [], "osrelease_content": "PRETTY_NAME=\\"Ubuntu 24.04.3 LTS\\"\\nNAME=\\"Ubuntu\\"\\nVERSION_ID=\\"24.04\\"\\nVERSION=\\"24.04.3 LTS (Noble Numbat)\\"\\nVERSION_CODENAME=noble\\nID=ubuntu\\nID_LIKE=debian\\nHOME_URL=\\"https://www.ubuntu.com/\\"\\nSUPPORT_URL=\\"https://help.ubuntu.com/\\"\\nBUG_REPORT_URL=\\"https://bugs.launchpad.net/ubuntu/\\"\\nPRIVACY_POLICY_URL=\\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\\"\\nUBUNTU_CODENAME=noble\\nLOGO=ubuntu-logo\\n"}\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/setup.py
+<44.201.23.135> PUT /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmp50qn_dds TO /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.562362-6187-753764055148/AnsiballZ_setup.py
+<44.201.23.135> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' '[44.201.23.135]'
+<44.204.131.128> (0, b'PLATFORM\nLinux\nFOUND\n/usr/bin/python3.12\n/usr/bin/python3\nENDFOUND\n', b'')
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'/usr/bin/python3.12 && sleep 0'"'"''
+<44.201.23.135> (0, b'sftp> put /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmp50qn_dds /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.562362-6187-753764055148/AnsiballZ_setup.py\n', b'')
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'chmod u+x /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.562362-6187-753764055148/ /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.562362-6187-753764055148/AnsiballZ_setup.py && sleep 0'"'"''
+<44.201.23.135> (0, b'', b'')
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' -tt 44.201.23.135 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-sbuxsdsrsqfovydcpdzfxvzstdgivagy ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.562362-6187-753764055148/AnsiballZ_setup.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<44.204.131.128> (0, b'{"platform_dist_result": [], "osrelease_content": "PRETTY_NAME=\\"Ubuntu 24.04.3 LTS\\"\\nNAME=\\"Ubuntu\\"\\nVERSION_ID=\\"24.04\\"\\nVERSION=\\"24.04.3 LTS (Noble Numbat)\\"\\nVERSION_CODENAME=noble\\nID=ubuntu\\nID_LIKE=debian\\nHOME_URL=\\"https://www.ubuntu.com/\\"\\nSUPPORT_URL=\\"https://help.ubuntu.com/\\"\\nBUG_REPORT_URL=\\"https://bugs.launchpad.net/ubuntu/\\"\\nPRIVACY_POLICY_URL=\\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\\"\\nUBUNTU_CODENAME=noble\\nLOGO=ubuntu-logo\\n"}\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/setup.py
+<44.204.131.128> PUT /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmptaxjb0gq TO /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.615402-6186-30393960624145/AnsiballZ_setup.py
+<44.204.131.128> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' '[44.204.131.128]'
+Escalation succeeded
+<44.204.131.128> (0, b'sftp> put /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmptaxjb0gq /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.615402-6186-30393960624145/AnsiballZ_setup.py\n', b'')
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'chmod u+x /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.615402-6186-30393960624145/ /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.615402-6186-30393960624145/AnsiballZ_setup.py && sleep 0'"'"''
+<44.204.131.128> (0, b'', b'')
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' -tt 44.204.131.128 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-tubzkyymciaenyaaydofcxedjwgdjuss ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.615402-6186-30393960624145/AnsiballZ_setup.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<44.201.23.135> (0, b'\r\n{"ansible_facts": {"ansible_distribution": "Ubuntu", "ansible_distribution_release": "noble", "ansible_distribution_version": "24.04", "ansible_distribution_major_version": "24", "ansible_distribution_file_path": "/etc/os-release", "ansible_distribution_file_variety": "Debian", "ansible_distribution_file_parsed": true, "ansible_os_family": "Debian", "ansible_virtualization_role": "guest", "ansible_virtualization_type": "kvm", "ansible_virtualization_tech_guest": ["kvm"], "ansible_virtualization_tech_host": [], "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQDDGitN2POOuFddCq7pwqtNbxmIqpYxJM2CUh4l8r1cFYlW21qI0EewXKj3vw1mdeTyniwPLco1Z0NQYW+ZR9U1NgjOiDwcH+JVRkma9ajJ2367sx60l7nWb9FssNMtCtbYnMPUZGPIUMMdm+F8yvQ393veG6HCtWpm+/2NL0fI5pEocuwlztDYrjCNGxlOJWhov1AykZetN+NjDfbFTx5jMR1jDI8T4xOxS0rn+Y0aelRdjdS9pfHZELH2hHOe+L7oaIDWoK33gJRFELgpqh2Z5CrZABwirNXDRJR0TVTZac+Hv+vmxnCWokYBAbyFkg+eCJOlLgz6sOzrYxUfCs1jrWD7k0pif9Blfa6lPnJdB3Sicos7PG2H3plJU18bJODA57+V0DRQ2Um2lCISYX4mCsL2I9dzRxZSNl0rDAEB0J/bqJMagimb7dvxivBZ7dma95Cf9cmPsIbs9J4bqYoz//NROsz4VAsCcBtcOBRGUO15g2WCqKV1MGMITXZEPuk=", "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa", "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNQqQ2E9CSZBW4mHejrHN5OMTaHepfGxVZkYkLPk6L5idMAcrDs+aFjnZtZA6ljXTq8Z3L6bIYu3k63iPK/zYJ0=", "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256", "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAINcGme0vf+l3D0qPxrNV5AYDfNUFw+V2x7DpXh9tqKDs", "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519", "ansible_system": "Linux", "ansible_kernel": "6.14.0-1018-aws", "ansible_kernel_version": "#18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025", "ansible_machine": "x86_64", "ansible_python_version": "3.12.3", "ansible_fqdn": "ip-172-31-83-222.ec2.internal", "ansible_hostname": "ip-172-31-83-222", "ansible_nodename": "ip-172-31-83-222", "ansible_domain": "ec2.internal", "ansible_userspace_bits": "64", "ansible_architecture": "x86_64", "ansible_userspace_architecture": "x86_64", "ansible_machine_id": "ec226ec3c03107fe24e6b6c9c8627fca", "ansible_env": {"SUDO_GID": "1000", "MAIL": "/var/mail/root", "USER": "root", "HOME": "/root", "SUDO_UID": "1000", "LOGNAME": "root", "TERM": "xterm", "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin", "LANG": "C.UTF-8", "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-sbuxsdsrsqfovydcpdzfxvzstdgivagy ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.562362-6187-753764055148/AnsiballZ_setup.py", "SHELL": "/bin/bash", "SUDO_USER": "ubuntu", "PWD": "/home/ubuntu"}, "ansible_user_id": "root", "ansible_user_uid": 0, "ansible_user_gid": 0, "ansible_user_gecos": "root", "ansible_user_dir": "/root", "ansible_user_shell": "/bin/bash", "ansible_real_user_id": 0, "ansible_effective_user_id": 0, "ansible_real_group_id": 0, "ansible_effective_group_id": 0, "ansible_loadavg": {"1m": 0.01904296875, "5m": 0.048828125, "15m": 0.01220703125}, "ansible_apparmor": {"status": "enabled"}, "ansible_system_capabilities_enforced": "False", "ansible_system_capabilities": [], "ansible_pkg_mgr": "apt", "ansible_processor": ["0", "GenuineIntel", "Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz", "1", "GenuineIntel", "Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz"], "ansible_processor_count": 1, "ansible_processor_cores": 1, "ansible_processor_threads_per_core": 2, "ansible_processor_vcpus": 2, "ansible_processor_nproc": 2, "ansible_memtotal_mb": 914, "ansible_memfree_mb": 241, "ansible_swaptotal_mb": 0, "ansible_swapfree_mb": 0, "ansible_memory_mb": {"real": {"total": 914, "used": 673, "free": 241}, "nocache": {"free": 668, "used": 246}, "swap": {"total": 0, "free": 0, "used": 0, "cached": 0}}, "ansible_bios_date": "10/16/2017", "ansible_bios_vendor": "Amazon EC2", "ansible_bios_version": "1.0", "ansible_board_asset_tag": "i-0a959004a36d960f4", "ansible_board_name": "NA", "ansible_board_serial": "NA", "ansible_board_vendor": "Amazon EC2", "ansible_board_version": "NA", "ansible_chassis_asset_tag": "Amazon EC2", "ansible_chassis_serial": "NA", "ansible_chassis_vendor": "Amazon EC2", "ansible_chassis_version": "NA", "ansible_form_factor": "Other", "ansible_product_name": "t3.micro", "ansible_product_serial": "ec226ec3-c031-07fe-24e6-b6c9c8627fca", "ansible_product_uuid": "ec226ec3-c031-07fe-24e6-b6c9c8627fca", "ansible_product_version": "NA", "ansible_system_vendor": "Amazon EC2", "ansible_devices": {"loop1": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "56864", "sectorsize": "512", "size": "27.77 MB", "host": "", "holders": []}, "nvme0n1": {"virtual": 1, "links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a", "nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a_1", "nvme-nvme.1d0f-766f6c3034653330333739663866356362643561-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001"], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": "Amazon Elastic Block Store", "sas_address": null, "sas_device_handle": null, "serial": "vol04e30379f8f5cbd5a", "removable": "0", "support_discard": "0", "partitions": {"nvme0n1p16": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a-part16", "nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a_1-part16", "nvme-nvme.1d0f-766f6c3034653330333739663866356362643561-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part16"], "uuids": ["d066b928-2f3b-4fe5-9761-6d12299a7d53"], "labels": ["BOOT"], "masters": []}, "start": "227328", "sectors": "1869825", "sectorsize": 512, "size": "913.00 MB", "uuid": "d066b928-2f3b-4fe5-9761-6d12299a7d53", "holders": []}, "nvme0n1p1": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a-part1", "nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a_1-part1", "nvme-nvme.1d0f-766f6c3034653330333739663866356362643561-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part1"], "uuids": ["f6fbc198-289f-487b-9a4c-c22e821c6c98"], "labels": ["cloudimg-rootfs"], "masters": []}, "start": "2099200", "sectors": "14677983", "sectorsize": 512, "size": "7.00 GB", "uuid": "f6fbc198-289f-487b-9a4c-c22e821c6c98", "holders": []}, "nvme0n1p14": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a-part14", "nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a_1-part14", "nvme-nvme.1d0f-766f6c3034653330333739663866356362643561-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part14"], "uuids": [], "labels": [], "masters": []}, "start": "2048", "sectors": "8192", "sectorsize": 512, "size": "4.00 MB", "uuid": null, "holders": []}, "nvme0n1p15": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a-part15", "nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a_1-part15", "nvme-nvme.1d0f-766f6c3034653330333739663866356362643561-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part15"], "uuids": ["872E-BD64"], "labels": ["UEFI"], "masters": []}, "start": "10240", "sectors": "217088", "sectorsize": 512, "size": "106.00 MB", "uuid": "872E-BD64", "holders": []}}, "rotational": "0", "scheduler_mode": "none", "sectors": "16777216", "sectorsize": "512", "size": "8.00 GB", "host": "Non-Volatile memory controller: Amazon.com, Inc. NVMe EBS Controller", "holders": []}, "loop6": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "0", "sectorsize": "512", "size": "0.00 Bytes", "host": "", "holders": []}, "loop4": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "104296", "sectorsize": "512", "size": "50.93 MB", "host": "", "holders": []}, "loop2": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "151456", "sectorsize": "512", "size": "73.95 MB", "host": "", "holders": []}, "loop0": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "56624", "sectorsize": "512", "size": "27.65 MB", "host": "", "holders": []}, "loop7": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "0", "sectorsize": "512", "size": "0.00 Bytes", "host": "", "holders": []}, "loop5": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "98480", "sectorsize": "512", "size": "48.09 MB", "host": "", "holders": []}, "loop3": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "151512", "sectorsize": "512", "size": "73.98 MB", "host": "", "holders": []}}, "ansible_device_links": {"ids": {"nvme0n1p14": ["nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a-part14", "nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a_1-part14", "nvme-nvme.1d0f-766f6c3034653330333739663866356362643561-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part14"], "nvme0n1p15": ["nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a-part15", "nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a_1-part15", "nvme-nvme.1d0f-766f6c3034653330333739663866356362643561-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part15"], "nvme0n1p16": ["nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a-part16", "nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a_1-part16", "nvme-nvme.1d0f-766f6c3034653330333739663866356362643561-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part16"], "nvme0n1p1": ["nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a-part1", "nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a_1-part1", "nvme-nvme.1d0f-766f6c3034653330333739663866356362643561-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part1"], "nvme0n1": ["nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a", "nvme-Amazon_Elastic_Block_Store_vol04e30379f8f5cbd5a_1", "nvme-nvme.1d0f-766f6c3034653330333739663866356362643561-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001"]}, "uuids": {"nvme0n1p15": ["872E-BD64"], "nvme0n1p16": ["d066b928-2f3b-4fe5-9761-6d12299a7d53"], "nvme0n1p1": ["f6fbc198-289f-487b-9a4c-c22e821c6c98"]}, "labels": {"nvme0n1p15": ["UEFI"], "nvme0n1p16": ["BOOT"], "nvme0n1p1": ["cloudimg-rootfs"]}, "masters": {}}, "ansible_uptime_seconds": 289, "ansible_lvm": {"lvs": {}, "vgs": {}, "pvs": {}}, "ansible_mounts": [{"mount": "/", "device": "/dev/root", "fstype": "ext4", "options": "rw,relatime,discard,errors=remount-ro,commit=30", "size_total": 7203201024, "size_available": 4693508096, "block_size": 4096, "block_total": 1758594, "block_available": 1145876, "block_used": 612718, "inode_total": 917504, "inode_available": 834993, "inode_used": 82511, "uuid": "f6fbc198-289f-487b-9a4c-c22e821c6c98"}, {"mount": "/snap/amazon-ssm-agent/11797", "device": "/dev/loop0", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 29097984, "size_available": 0, "block_size": 131072, "block_total": 222, "block_available": 0, "block_used": 222, "inode_total": 14, "inode_available": 0, "inode_used": 14, "uuid": "N/A"}, {"mount": "/snap/amazon-ssm-agent/12322", "device": "/dev/loop1", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 29229056, "size_available": 0, "block_size": 131072, "block_total": 223, "block_available": 0, "block_used": 223, "inode_total": 14, "inode_available": 0, "inode_used": 14, "uuid": "N/A"}, {"mount": "/snap/core22/2163", "device": "/dev/loop2", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 77594624, "size_available": 0, "block_size": 131072, "block_total": 592, "block_available": 0, "block_used": 592, "inode_total": 14268, "inode_available": 0, "inode_used": 14268, "uuid": "N/A"}, {"mount": "/snap/core22/2411", "device": "/dev/loop3", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 77594624, "size_available": 0, "block_size": 131072, "block_total": 592, "block_available": 0, "block_used": 592, "inode_total": 14270, "inode_available": 0, "inode_used": 14270, "uuid": "N/A"}, {"mount": "/snap/snapd/25577", "device": "/dev/loop4", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 53477376, "size_available": 0, "block_size": 131072, "block_total": 408, "block_available": 0, "block_used": 408, "inode_total": 617, "inode_available": 0, "inode_used": 617, "uuid": "N/A"}, {"mount": "/snap/snapd/25935", "device": "/dev/loop5", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 50462720, "size_available": 0, "block_size": 131072, "block_total": 385, "block_available": 0, "block_used": 385, "inode_total": 617, "inode_available": 0, "inode_used": 617, "uuid": "N/A"}, {"mount": "/boot", "device": "/dev/nvme0n1p16", "fstype": "ext4", "options": "rw,relatime", "size_total": 923156480, "size_available": 765292544, "block_size": 4096, "block_total": 225380, "block_available": 186839, "block_used": 38541, "inode_total": 58496, "inode_available": 57895, "inode_used": 601, "uuid": "d066b928-2f3b-4fe5-9761-6d12299a7d53"}, {"mount": "/boot/efi", "device": "/dev/nvme0n1p15", "fstype": "vfat", "options": "rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro", "size_total": 109395456, "size_available": 102995968, "block_size": 512, "block_total": 213663, "block_available": 201164, "block_used": 12499, "inode_total": 0, "inode_available": 0, "inode_used": 0, "uuid": "872E-BD64"}], "ansible_local": {}, "ansible_fips": false, "ansible_hostnqn": "", "ansible_service_mgr": "systemd", "ansible_fibre_channel_wwn": [], "ansible_interfaces": ["ens5", "lo"], "ansible_lo": {"device": "lo", "mtu": 65536, "active": true, "type": "loopback", "promisc": false, "ipv4": {"address": "127.0.0.1", "broadcast": "", "netmask": "255.0.0.0", "network": "127.0.0.0", "prefix": "8"}, "ipv6": [{"address": "::1", "prefix": "128", "scope": "host"}], "features": {"rx_checksumming": "on [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "off [fixed]", "tx_checksum_ip_generic": "on [fixed]", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "on [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on [fixed]", "tx_scatter_gather_fraglist": "on [fixed]", "tcp_segmentation_offload": "on", "tx_tcp_segmentation": "on", "tx_tcp_ecn_segmentation": "on", "tx_tcp_mangleid_segmentation": "on", "tx_tcp6_segmentation": "on", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "off [fixed]", "highdma": "on [fixed]", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "on [fixed]", "tx_gso_robust": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_tunnel_remcsum_segmentation": "off [fixed]", "tx_sctp_segmentation": "on", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "on", "tx_gso_list": "on", "tx_nocache_copy": "off [fixed]", "loopback": "on [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]", "rx_gro_list": "off", "macsec_hw_offload": "off [fixed]", "rx_udp_gro_forwarding": "off", "hsr_tag_ins_offload": "off [fixed]", "hsr_tag_rm_offload": "off [fixed]", "hsr_fwd_offload": "off [fixed]", "hsr_dup_offload": "off [fixed]"}, "timestamping": [], "hw_timestamp_filters": []}, "ansible_ens5": {"device": "ens5", "macaddress": "02:2a:25:11:3b:0f", "mtu": 9001, "active": true, "module": "ena", "type": "ether", "pciid": "0000:00:05.0", "promisc": false, "ipv4": {"address": "172.31.83.222", "broadcast": "", "netmask": "255.255.0.0", "network": "172.31.0.0", "prefix": "16"}, "ipv6": [{"address": "fe80::2a:25ff:fe11:3b0f", "prefix": "64", "scope": "link"}], "features": {"rx_checksumming": "off [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "on", "tx_checksum_ip_generic": "off [fixed]", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "off [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on", "tx_scatter_gather_fraglist": "off [fixed]", "tcp_segmentation_offload": "off", "tx_tcp_segmentation": "off [fixed]", "tx_tcp_ecn_segmentation": "off [fixed]", "tx_tcp_mangleid_segmentation": "off [fixed]", "tx_tcp6_segmentation": "off [fixed]", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "on", "highdma": "on", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "off [fixed]", "tx_gso_robust": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_tunnel_remcsum_segmentation": "off [fixed]", "tx_sctp_segmentation": "off [fixed]", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "off [fixed]", "tx_gso_list": "off [fixed]", "tx_nocache_copy": "off", "loopback": "off [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]", "rx_gro_list": "off", "macsec_hw_offload": "off [fixed]", "rx_udp_gro_forwarding": "off", "hsr_tag_ins_offload": "off [fixed]", "hsr_tag_rm_offload": "off [fixed]", "hsr_fwd_offload": "off [fixed]", "hsr_dup_offload": "off [fixed]"}, "timestamping": [], "hw_timestamp_filters": []}, "ansible_default_ipv4": {"gateway": "172.31.0.1", "interface": "ens5", "address": "172.31.83.222", "broadcast": "", "netmask": "255.255.0.0", "network": "172.31.0.0", "prefix": "16", "macaddress": "02:2a:25:11:3b:0f", "mtu": 9001, "type": "ether", "alias": "ens5"}, "ansible_default_ipv6": {}, "ansible_all_ipv4_addresses": ["172.31.83.222"], "ansible_all_ipv6_addresses": ["fe80::2a:25ff:fe11:3b0f"], "ansible_locally_reachable_ips": {"ipv4": ["127.0.0.0/8", "127.0.0.1", "172.31.83.222"], "ipv6": ["::1", "fe80::2a:25ff:fe11:3b0f"]}, "ansible_selinux_python_present": true, "ansible_selinux": {"status": "disabled"}, "ansible_python": {"version": {"major": 3, "minor": 12, "micro": 3, "releaselevel": "final", "serial": 0}, "version_info": [3, 12, 3, "final", 0], "executable": "/usr/bin/python3", "has_sslcontext": true, "type": "cpython"}, "ansible_cmdline": {"BOOT_IMAGE": "/vmlinuz-6.14.0-1018-aws", "root": "PARTUUID=2baf9194-a5fb-4b12-adb0-45166f0feb06", "ro": true, "console": "ttyS0", "nvme_core.io_timeout": "4294967295", "panic": "-1"}, "ansible_proc_cmdline": {"BOOT_IMAGE": "/vmlinuz-6.14.0-1018-aws", "root": "PARTUUID=2baf9194-a5fb-4b12-adb0-45166f0feb06", "ro": true, "console": ["tty1", "ttyS0"], "nvme_core.io_timeout": "4294967295", "panic": "-1"}, "ansible_is_chroot": false, "ansible_lsb": {"id": "Ubuntu", "description": "Ubuntu 24.04.3 LTS", "release": "24.04", "codename": "noble", "major_release": "24"}, "ansible_iscsi_iqn": "", "ansible_date_time": {"year": "2026", "month": "04", "weekday": "Friday", "weekday_number": "5", "weeknumber": "13", "day": "03", "hour": "05", "minute": "51", "second": "39", "epoch": "1775195499", "epoch_int": "1775195499", "date": "2026-04-03", "time": "05:51:39", "iso8601_micro": "2026-04-03T05:51:39.554931Z", "iso8601": "2026-04-03T05:51:39Z", "iso8601_basic": "20260403T055139554931", "iso8601_basic_short": "20260403T055139", "tz": "UTC", "tz_dst": "UTC", "tz_offset": "+0000"}, "ansible_dns": {"nameservers": ["127.0.0.53"], "options": {"edns0": true, "trust-ad": true}, "search": ["ec2.internal"]}, "gather_subset": ["all"], "module_setup": true}, "invocation": {"module_args": {"gather_subset": ["all"], "gather_timeout": 10, "filter": [], "fact_path": "/etc/ansible/facts.d"}}}\r\n', b'Shared connection to 44.201.23.135 closed.\r\n')
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.562362-6187-753764055148/ > /dev/null 2>&1 && sleep 0'"'"''
+<44.201.23.135> (0, b'', b'')
+ok: [ec2-44-201-23-135.compute-1.amazonaws.com]
+<44.204.131.128> (0, b'\r\n{"ansible_facts": {"ansible_system_capabilities_enforced": "False", "ansible_system_capabilities": [], "ansible_user_id": "root", "ansible_user_uid": 0, "ansible_user_gid": 0, "ansible_user_gecos": "root", "ansible_user_dir": "/root", "ansible_user_shell": "/bin/bash", "ansible_real_user_id": 0, "ansible_effective_user_id": 0, "ansible_real_group_id": 0, "ansible_effective_group_id": 0, "ansible_is_chroot": false, "ansible_fibre_channel_wwn": [], "ansible_distribution": "Ubuntu", "ansible_distribution_release": "noble", "ansible_distribution_version": "24.04", "ansible_distribution_major_version": "24", "ansible_distribution_file_path": "/etc/os-release", "ansible_distribution_file_variety": "Debian", "ansible_distribution_file_parsed": true, "ansible_os_family": "Debian", "ansible_lsb": {"id": "Ubuntu", "description": "Ubuntu 24.04.3 LTS", "release": "24.04", "codename": "noble", "major_release": "24"}, "ansible_virtualization_role": "guest", "ansible_virtualization_type": "kvm", "ansible_virtualization_tech_guest": ["kvm"], "ansible_virtualization_tech_host": [], "ansible_cmdline": {"BOOT_IMAGE": "/vmlinuz-6.14.0-1018-aws", "root": "PARTUUID=2baf9194-a5fb-4b12-adb0-45166f0feb06", "ro": true, "console": "ttyS0", "nvme_core.io_timeout": "4294967295", "panic": "-1"}, "ansible_proc_cmdline": {"BOOT_IMAGE": "/vmlinuz-6.14.0-1018-aws", "root": "PARTUUID=2baf9194-a5fb-4b12-adb0-45166f0feb06", "ro": true, "console": ["tty1", "ttyS0"], "nvme_core.io_timeout": "4294967295", "panic": "-1"}, "ansible_system": "Linux", "ansible_kernel": "6.14.0-1018-aws", "ansible_kernel_version": "#18~24.04.1-Ubuntu SMP Mon Nov 24 19:46:27 UTC 2025", "ansible_machine": "x86_64", "ansible_python_version": "3.12.3", "ansible_fqdn": "ip-172-31-94-54.ec2.internal", "ansible_hostname": "ip-172-31-94-54", "ansible_nodename": "ip-172-31-94-54", "ansible_domain": "ec2.internal", "ansible_userspace_bits": "64", "ansible_architecture": "x86_64", "ansible_userspace_architecture": "x86_64", "ansible_machine_id": "ec23ee5dbf20588ba3da96e2f555f658", "ansible_processor": ["0", "GenuineIntel", "Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz", "1", "GenuineIntel", "Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz"], "ansible_processor_count": 1, "ansible_processor_cores": 1, "ansible_processor_threads_per_core": 2, "ansible_processor_vcpus": 2, "ansible_processor_nproc": 2, "ansible_memtotal_mb": 914, "ansible_memfree_mb": 243, "ansible_swaptotal_mb": 0, "ansible_swapfree_mb": 0, "ansible_memory_mb": {"real": {"total": 914, "used": 671, "free": 243}, "nocache": {"free": 656, "used": 258}, "swap": {"total": 0, "free": 0, "used": 0, "cached": 0}}, "ansible_bios_date": "10/16/2017", "ansible_bios_vendor": "Amazon EC2", "ansible_bios_version": "1.0", "ansible_board_asset_tag": "i-04c98eeb4ad86438c", "ansible_board_name": "NA", "ansible_board_serial": "NA", "ansible_board_vendor": "Amazon EC2", "ansible_board_version": "NA", "ansible_chassis_asset_tag": "Amazon EC2", "ansible_chassis_serial": "NA", "ansible_chassis_vendor": "Amazon EC2", "ansible_chassis_version": "NA", "ansible_form_factor": "Other", "ansible_product_name": "t3.micro", "ansible_product_serial": "ec23ee5d-bf20-588b-a3da-96e2f555f658", "ansible_product_uuid": "ec23ee5d-bf20-588b-a3da-96e2f555f658", "ansible_product_version": "NA", "ansible_system_vendor": "Amazon EC2", "ansible_devices": {"loop1": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "56864", "sectorsize": "512", "size": "27.77 MB", "host": "", "holders": []}, "nvme0n1": {"virtual": 1, "links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca", "nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca_1", "nvme-nvme.1d0f-766f6c3030346462646261303638393333346361-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001"], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": "Amazon Elastic Block Store", "sas_address": null, "sas_device_handle": null, "serial": "vol004dbdba0689334ca", "removable": "0", "support_discard": "0", "partitions": {"nvme0n1p16": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca-part16", "nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca_1-part16", "nvme-nvme.1d0f-766f6c3030346462646261303638393333346361-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part16"], "uuids": ["d066b928-2f3b-4fe5-9761-6d12299a7d53"], "labels": ["BOOT"], "masters": []}, "start": "227328", "sectors": "1869825", "sectorsize": 512, "size": "913.00 MB", "uuid": "d066b928-2f3b-4fe5-9761-6d12299a7d53", "holders": []}, "nvme0n1p1": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca-part1", "nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca_1-part1", "nvme-nvme.1d0f-766f6c3030346462646261303638393333346361-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part1"], "uuids": ["f6fbc198-289f-487b-9a4c-c22e821c6c98"], "labels": ["cloudimg-rootfs"], "masters": []}, "start": "2099200", "sectors": "14677983", "sectorsize": 512, "size": "7.00 GB", "uuid": "f6fbc198-289f-487b-9a4c-c22e821c6c98", "holders": []}, "nvme0n1p14": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca-part14", "nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca_1-part14", "nvme-nvme.1d0f-766f6c3030346462646261303638393333346361-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part14"], "uuids": [], "labels": [], "masters": []}, "start": "2048", "sectors": "8192", "sectorsize": 512, "size": "4.00 MB", "uuid": null, "holders": []}, "nvme0n1p15": {"links": {"ids": ["nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca-part15", "nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca_1-part15", "nvme-nvme.1d0f-766f6c3030346462646261303638393333346361-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part15"], "uuids": ["872E-BD64"], "labels": ["UEFI"], "masters": []}, "start": "10240", "sectors": "217088", "sectorsize": 512, "size": "106.00 MB", "uuid": "872E-BD64", "holders": []}}, "rotational": "0", "scheduler_mode": "none", "sectors": "16777216", "sectorsize": "512", "size": "8.00 GB", "host": "Non-Volatile memory controller: Amazon.com, Inc. NVMe EBS Controller", "holders": []}, "loop6": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "0", "sectorsize": "512", "size": "0.00 Bytes", "host": "", "holders": []}, "loop4": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "0", "sectorsize": "512", "size": "0.00 Bytes", "host": "", "holders": []}, "loop2": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "104296", "sectorsize": "512", "size": "50.93 MB", "host": "", "holders": []}, "loop0": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "56624", "sectorsize": "512", "size": "27.65 MB", "host": "", "holders": []}, "loop7": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "0", "sectorsize": "512", "size": "0.00 Bytes", "host": "", "holders": []}, "loop5": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "0", "sectorsize": "512", "size": "0.00 Bytes", "host": "", "holders": []}, "loop3": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "0", "scheduler_mode": "none", "sectors": "151456", "sectorsize": "512", "size": "73.95 MB", "host": "", "holders": []}}, "ansible_device_links": {"ids": {"nvme0n1p14": ["nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca-part14", "nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca_1-part14", "nvme-nvme.1d0f-766f6c3030346462646261303638393333346361-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part14"], "nvme0n1p16": ["nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca-part16", "nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca_1-part16", "nvme-nvme.1d0f-766f6c3030346462646261303638393333346361-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part16"], "nvme0n1p15": ["nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca-part15", "nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca_1-part15", "nvme-nvme.1d0f-766f6c3030346462646261303638393333346361-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part15"], "nvme0n1p1": ["nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca-part1", "nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca_1-part1", "nvme-nvme.1d0f-766f6c3030346462646261303638393333346361-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part1"], "nvme0n1": ["nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca", "nvme-Amazon_Elastic_Block_Store_vol004dbdba0689334ca_1", "nvme-nvme.1d0f-766f6c3030346462646261303638393333346361-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001"]}, "uuids": {"nvme0n1p15": ["872E-BD64"], "nvme0n1p16": ["d066b928-2f3b-4fe5-9761-6d12299a7d53"], "nvme0n1p1": ["f6fbc198-289f-487b-9a4c-c22e821c6c98"]}, "labels": {"nvme0n1p15": ["UEFI"], "nvme0n1p16": ["BOOT"], "nvme0n1p1": ["cloudimg-rootfs"]}, "masters": {}}, "ansible_uptime_seconds": 288, "ansible_lvm": {"lvs": {}, "vgs": {}, "pvs": {}}, "ansible_mounts": [{"mount": "/", "device": "/dev/root", "fstype": "ext4", "options": "rw,relatime,discard,errors=remount-ro,commit=30", "size_total": 7203201024, "size_available": 4821843968, "block_size": 4096, "block_total": 1758594, "block_available": 1177208, "block_used": 581386, "inode_total": 917504, "inode_available": 835017, "inode_used": 82487, "uuid": "f6fbc198-289f-487b-9a4c-c22e821c6c98"}, {"mount": "/snap/amazon-ssm-agent/11797", "device": "/dev/loop0", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 29097984, "size_available": 0, "block_size": 131072, "block_total": 222, "block_available": 0, "block_used": 222, "inode_total": 14, "inode_available": 0, "inode_used": 14, "uuid": "N/A"}, {"mount": "/snap/amazon-ssm-agent/12322", "device": "/dev/loop1", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 29229056, "size_available": 0, "block_size": 131072, "block_total": 223, "block_available": 0, "block_used": 223, "inode_total": 14, "inode_available": 0, "inode_used": 14, "uuid": "N/A"}, {"mount": "/snap/snapd/25577", "device": "/dev/loop2", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 53477376, "size_available": 0, "block_size": 131072, "block_total": 408, "block_available": 0, "block_used": 408, "inode_total": 617, "inode_available": 0, "inode_used": 617, "uuid": "N/A"}, {"mount": "/snap/core22/2163", "device": "/dev/loop3", "fstype": "squashfs", "options": "ro,nodev,relatime,errors=continue,threads=single", "size_total": 77594624, "size_available": 0, "block_size": 131072, "block_total": 592, "block_available": 0, "block_used": 592, "inode_total": 14268, "inode_available": 0, "inode_used": 14268, "uuid": "N/A"}, {"mount": "/boot", "device": "/dev/nvme0n1p16", "fstype": "ext4", "options": "rw,relatime", "size_total": 923156480, "size_available": 765292544, "block_size": 4096, "block_total": 225380, "block_available": 186839, "block_used": 38541, "inode_total": 58496, "inode_available": 57895, "inode_used": 601, "uuid": "d066b928-2f3b-4fe5-9761-6d12299a7d53"}, {"mount": "/boot/efi", "device": "/dev/nvme0n1p15", "fstype": "vfat", "options": "rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro", "size_total": 109395456, "size_available": 102995968, "block_size": 512, "block_total": 213663, "block_available": 201164, "block_used": 12499, "inode_total": 0, "inode_available": 0, "inode_used": 0, "uuid": "872E-BD64"}], "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQC8hAHgWc82HsBGYVqe4quxKcow2X0WKtWl//0WLD67VicK0P4HMnPF/HRke1nEwIPslFOPJNaSRIulB+wMBPAPFxuhA9PGqbHS6YxJA4pZBsKqGQDr2xQsf4EHWz2jkfLN0lRNsc40VyC16Y7b3mCScjIYxtDrNWvBIKP4dQY6uu+Jof4PrUtW8ooY7a/tg6Y1A8D/SmsYQiHdy+tsrbD46WRmbLOKjI0J5it4FMumiDBBFimUPnS7+hsXjRQqYtbbCPfGUkl2vFZWBrDC6CGeZsugCMz18zeSFYJDZiHbN7HFmjLmvbvbUwOjgnCEIihscpqgOhHRqcSB+8dWHOK7GAzsbascw+wTdzxtk2wlTOFQWSZgZ931TYhZftsdgbTGFMhpQkdXblQCXo/Qvkzfa1tZZTcJwSKXWu7uWVLiNdj7Lcl8xzMUkVmYLX7zucCsjWTDwfGsyFymXnUsqXRw1KSEFfG1dgrmRsY2z49I021/3Ujcu1cRXYh8R/7HNbs=", "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa", "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNkRiSl6+f7AmGLkSOSFi9Zk6CH0ItE85nP2wuJsv7dCfXhd7nHCxb2MVzhJeOeKtcJ0ly1ynk7/wgjFMLoURCo=", "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256", "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIBKTrJooBNEPBto7SH/7j/DD8S8QWtDtroWVLzV98CTT", "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519", "ansible_python": {"version": {"major": 3, "minor": 12, "micro": 3, "releaselevel": "final", "serial": 0}, "version_info": [3, 12, 3, "final", 0], "executable": "/usr/bin/python3", "has_sslcontext": true, "type": "cpython"}, "ansible_local": {}, "ansible_fips": false, "ansible_iscsi_iqn": "", "ansible_hostnqn": "", "ansible_date_time": {"year": "2026", "month": "04", "weekday": "Friday", "weekday_number": "5", "weeknumber": "13", "day": "03", "hour": "05", "minute": "51", "second": "39", "epoch": "1775195499", "epoch_int": "1775195499", "date": "2026-04-03", "time": "05:51:39", "iso8601_micro": "2026-04-03T05:51:39.591035Z", "iso8601": "2026-04-03T05:51:39Z", "iso8601_basic": "20260403T055139591035", "iso8601_basic_short": "20260403T055139", "tz": "UTC", "tz_dst": "UTC", "tz_offset": "+0000"}, "ansible_loadavg": {"1m": 0.01220703125, "5m": 0.0341796875, "15m": 0.00146484375}, "ansible_env": {"SUDO_GID": "1000", "MAIL": "/var/mail/root", "USER": "root", "HOME": "/root", "SUDO_UID": "1000", "LOGNAME": "root", "TERM": "xterm", "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin", "LANG": "C.UTF-8", "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-tubzkyymciaenyaaydofcxedjwgdjuss ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.615402-6186-30393960624145/AnsiballZ_setup.py", "SHELL": "/bin/bash", "SUDO_USER": "ubuntu", "PWD": "/home/ubuntu"}, "ansible_selinux_python_present": true, "ansible_selinux": {"status": "disabled"}, "ansible_pkg_mgr": "apt", "ansible_interfaces": ["ens5", "lo"], "ansible_ens5": {"device": "ens5", "macaddress": "02:8b:15:4a:e7:6d", "mtu": 9001, "active": true, "module": "ena", "type": "ether", "pciid": "0000:00:05.0", "promisc": false, "ipv4": {"address": "172.31.94.54", "broadcast": "", "netmask": "255.255.0.0", "network": "172.31.0.0", "prefix": "16"}, "ipv6": [{"address": "fe80::8b:15ff:fe4a:e76d", "prefix": "64", "scope": "link"}], "features": {"rx_checksumming": "off [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "on", "tx_checksum_ip_generic": "off [fixed]", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "off [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on", "tx_scatter_gather_fraglist": "off [fixed]", "tcp_segmentation_offload": "off", "tx_tcp_segmentation": "off [fixed]", "tx_tcp_ecn_segmentation": "off [fixed]", "tx_tcp_mangleid_segmentation": "off [fixed]", "tx_tcp6_segmentation": "off [fixed]", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "on", "highdma": "on", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "off [fixed]", "tx_gso_robust": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_tunnel_remcsum_segmentation": "off [fixed]", "tx_sctp_segmentation": "off [fixed]", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "off [fixed]", "tx_gso_list": "off [fixed]", "tx_nocache_copy": "off", "loopback": "off [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]", "rx_gro_list": "off", "macsec_hw_offload": "off [fixed]", "rx_udp_gro_forwarding": "off", "hsr_tag_ins_offload": "off [fixed]", "hsr_tag_rm_offload": "off [fixed]", "hsr_fwd_offload": "off [fixed]", "hsr_dup_offload": "off [fixed]"}, "timestamping": [], "hw_timestamp_filters": []}, "ansible_lo": {"device": "lo", "mtu": 65536, "active": true, "type": "loopback", "promisc": false, "ipv4": {"address": "127.0.0.1", "broadcast": "", "netmask": "255.0.0.0", "network": "127.0.0.0", "prefix": "8"}, "ipv6": [{"address": "::1", "prefix": "128", "scope": "host"}], "features": {"rx_checksumming": "on [fixed]", "tx_checksumming": "on", "tx_checksum_ipv4": "off [fixed]", "tx_checksum_ip_generic": "on [fixed]", "tx_checksum_ipv6": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "tx_checksum_sctp": "on [fixed]", "scatter_gather": "on", "tx_scatter_gather": "on [fixed]", "tx_scatter_gather_fraglist": "on [fixed]", "tcp_segmentation_offload": "on", "tx_tcp_segmentation": "on", "tx_tcp_ecn_segmentation": "on", "tx_tcp_mangleid_segmentation": "on", "tx_tcp6_segmentation": "on", "generic_segmentation_offload": "on", "generic_receive_offload": "on", "large_receive_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "tx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "receive_hashing": "off [fixed]", "highdma": "on [fixed]", "rx_vlan_filter": "off [fixed]", "vlan_challenged": "on [fixed]", "tx_gso_robust": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_gre_segmentation": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "tx_ipxip4_segmentation": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_tunnel_remcsum_segmentation": "off [fixed]", "tx_sctp_segmentation": "on", "tx_esp_segmentation": "off [fixed]", "tx_udp_segmentation": "on", "tx_gso_list": "on", "tx_nocache_copy": "off [fixed]", "loopback": "on [fixed]", "rx_fcs": "off [fixed]", "rx_all": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "l2_fwd_offload": "off [fixed]", "hw_tc_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "tls_hw_rx_offload": "off [fixed]", "rx_gro_hw": "off [fixed]", "tls_hw_record": "off [fixed]", "rx_gro_list": "off", "macsec_hw_offload": "off [fixed]", "rx_udp_gro_forwarding": "off", "hsr_tag_ins_offload": "off [fixed]", "hsr_tag_rm_offload": "off [fixed]", "hsr_fwd_offload": "off [fixed]", "hsr_dup_offload": "off [fixed]"}, "timestamping": [], "hw_timestamp_filters": []}, "ansible_default_ipv4": {"gateway": "172.31.0.1", "interface": "ens5", "address": "172.31.94.54", "broadcast": "", "netmask": "255.255.0.0", "network": "172.31.0.0", "prefix": "16", "macaddress": "02:8b:15:4a:e7:6d", "mtu": 9001, "type": "ether", "alias": "ens5"}, "ansible_default_ipv6": {}, "ansible_all_ipv4_addresses": ["172.31.94.54"], "ansible_all_ipv6_addresses": ["fe80::8b:15ff:fe4a:e76d"], "ansible_locally_reachable_ips": {"ipv4": ["127.0.0.0/8", "127.0.0.1", "172.31.94.54"], "ipv6": ["::1", "fe80::8b:15ff:fe4a:e76d"]}, "ansible_apparmor": {"status": "enabled"}, "ansible_service_mgr": "systemd", "ansible_dns": {"nameservers": ["127.0.0.53"], "options": {"edns0": true, "trust-ad": true}, "search": ["ec2.internal"]}, "gather_subset": ["all"], "module_setup": true}, "invocation": {"module_args": {"gather_subset": ["all"], "gather_timeout": 10, "filter": [], "fact_path": "/etc/ansible/facts.d"}}}\r\n', b'Shared connection to 44.204.131.128 closed.\r\n')
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1775195498.615402-6186-30393960624145/ > /dev/null 2>&1 && sleep 0'"'"''
+<44.204.131.128> (0, b'', b'')
+ok: [ec2-44-204-131-128.compute-1.amazonaws.com]
+
+TASK [nginx : Install nginx] ***************************************************
+task path: /home/ubuntu/ansible-project/roles/nginx/tasks/main.yml:1
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<44.204.131.128> (0, b'/home/ubuntu\n', b'')
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7659893-6212-249856582380538 `" && echo ansible-tmp-1775195499.7659893-6212-249856582380538="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7659893-6212-249856582380538 `" ) && sleep 0'"'"''
+<44.201.23.135> (0, b'/home/ubuntu\n', b'')
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7810798-6214-62645520383888 `" && echo ansible-tmp-1775195499.7810798-6214-62645520383888="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7810798-6214-62645520383888 `" ) && sleep 0'"'"''
+<44.204.131.128> (0, b'ansible-tmp-1775195499.7659893-6212-249856582380538=/home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7659893-6212-249856582380538\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/apt.py
+<44.204.131.128> PUT /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmp4voth9wr TO /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7659893-6212-249856582380538/AnsiballZ_apt.py
+<44.204.131.128> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' '[44.204.131.128]'
+<44.201.23.135> (0, b'ansible-tmp-1775195499.7810798-6214-62645520383888=/home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7810798-6214-62645520383888\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/apt.py
+<44.201.23.135> PUT /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmp62wu0f2d TO /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7810798-6214-62645520383888/AnsiballZ_apt.py
+<44.201.23.135> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' '[44.201.23.135]'
+<44.204.131.128> (0, b'sftp> put /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmp4voth9wr /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7659893-6212-249856582380538/AnsiballZ_apt.py\n', b'')
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'chmod u+x /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7659893-6212-249856582380538/ /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7659893-6212-249856582380538/AnsiballZ_apt.py && sleep 0'"'"''
+<44.201.23.135> (0, b'sftp> put /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmp62wu0f2d /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7810798-6214-62645520383888/AnsiballZ_apt.py\n', b'')
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'chmod u+x /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7810798-6214-62645520383888/ /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7810798-6214-62645520383888/AnsiballZ_apt.py && sleep 0'"'"''
+<44.204.131.128> (0, b'', b'')
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' -tt 44.204.131.128 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-kujgswnlooqyhwjzjkoulecfwiwwsjel ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7659893-6212-249856582380538/AnsiballZ_apt.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<44.201.23.135> (0, b'', b'')
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' -tt 44.201.23.135 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-mrymnhuxoluvoxchjayczefxpbukxgir ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7810798-6214-62645520383888/AnsiballZ_apt.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+Escalation succeeded
+<44.204.131.128> (0, b'\r\n{"changed": false, "cache_updated": true, "cache_update_time": 1775195500, "invocation": {"module_args": {"name": "nginx", "state": "present", "update_cache": true, "package": ["nginx"], "update_cache_retries": 5, "update_cache_retry_max_delay": 12, "cache_valid_time": 0, "purge": false, "force": false, "upgrade": null, "dpkg_options": "force-confdef,force-confold", "autoremove": false, "autoclean": false, "fail_on_autoremove": false, "only_upgrade": false, "force_apt_get": false, "clean": false, "allow_unauthenticated": false, "allow_downgrade": false, "allow_change_held_packages": false, "lock_timeout": 60, "deb": null, "default_release": null, "install_recommends": null, "policy_rc_d": null}}}\r\n', b'Shared connection to 44.204.131.128 closed.\r\n')
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7659893-6212-249856582380538/ > /dev/null 2>&1 && sleep 0'"'"''
+<44.204.131.128> (0, b'', b'')
+ok: [ec2-44-204-131-128.compute-1.amazonaws.com] => {
+    "cache_update_time": 1775195500,
+    "cache_updated": true,
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "allow_change_held_packages": false,
+            "allow_downgrade": false,
+            "allow_unauthenticated": false,
+            "autoclean": false,
+            "autoremove": false,
+            "cache_valid_time": 0,
+            "clean": false,
+            "deb": null,
+            "default_release": null,
+            "dpkg_options": "force-confdef,force-confold",
+            "fail_on_autoremove": false,
+            "force": false,
+            "force_apt_get": false,
+            "install_recommends": null,
+            "lock_timeout": 60,
+            "name": "nginx",
+            "only_upgrade": false,
+            "package": [
+                "nginx"
+            ],
+            "policy_rc_d": null,
+            "purge": false,
+            "state": "present",
+            "update_cache": true,
+            "update_cache_retries": 5,
+            "update_cache_retry_max_delay": 12,
+            "upgrade": null
+        }
+    }
+}
+<44.201.23.135> (0, b'\r\n{"changed": false, "cache_updated": true, "cache_update_time": 1775195501, "invocation": {"module_args": {"name": "nginx", "state": "present", "update_cache": true, "package": ["nginx"], "update_cache_retries": 5, "update_cache_retry_max_delay": 12, "cache_valid_time": 0, "purge": false, "force": false, "upgrade": null, "dpkg_options": "force-confdef,force-confold", "autoremove": false, "autoclean": false, "fail_on_autoremove": false, "only_upgrade": false, "force_apt_get": false, "clean": false, "allow_unauthenticated": false, "allow_downgrade": false, "allow_change_held_packages": false, "lock_timeout": 60, "deb": null, "default_release": null, "install_recommends": null, "policy_rc_d": null}}}\r\n', b'Shared connection to 44.201.23.135 closed.\r\n')
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1775195499.7810798-6214-62645520383888/ > /dev/null 2>&1 && sleep 0'"'"''
+<44.201.23.135> (0, b'', b'')
+ok: [ec2-44-201-23-135.compute-1.amazonaws.com] => {
+    "cache_update_time": 1775195501,
+    "cache_updated": true,
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "allow_change_held_packages": false,
+            "allow_downgrade": false,
+            "allow_unauthenticated": false,
+            "autoclean": false,
+            "autoremove": false,
+            "cache_valid_time": 0,
+            "clean": false,
+            "deb": null,
+            "default_release": null,
+            "dpkg_options": "force-confdef,force-confold",
+            "fail_on_autoremove": false,
+            "force": false,
+            "force_apt_get": false,
+            "install_recommends": null,
+            "lock_timeout": 60,
+            "name": "nginx",
+            "only_upgrade": false,
+            "package": [
+                "nginx"
+            ],
+            "policy_rc_d": null,
+            "purge": false,
+            "state": "present",
+            "update_cache": true,
+            "update_cache_retries": 5,
+            "update_cache_retry_max_delay": 12,
+            "upgrade": null
+        }
+    }
+}
+
+TASK [nginx : Start nginx] *****************************************************
+task path: /home/ubuntu/ansible-project/roles/nginx/tasks/main.yml:7
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<44.204.131.128> (0, b'/home/ubuntu\n', b'')
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0406582-6228-165818918953374 `" && echo ansible-tmp-1775195502.0406582-6228-165818918953374="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0406582-6228-165818918953374 `" ) && sleep 0'"'"''
+<44.201.23.135> (0, b'/home/ubuntu\n', b'')
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ubuntu/.ansible/tmp `"&& mkdir "` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0546184-6229-168821021015718 `" && echo ansible-tmp-1775195502.0546184-6229-168821021015718="` echo /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0546184-6229-168821021015718 `" ) && sleep 0'"'"''
+<44.204.131.128> (0, b'ansible-tmp-1775195502.0406582-6228-165818918953374=/home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0406582-6228-165818918953374\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/systemd.py
+<44.204.131.128> PUT /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmph3cl6t07 TO /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0406582-6228-165818918953374/AnsiballZ_systemd.py
+<44.204.131.128> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' '[44.204.131.128]'
+<44.201.23.135> (0, b'ansible-tmp-1775195502.0546184-6229-168821021015718=/home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0546184-6229-168821021015718\n', b'')
+Using module file /usr/lib/python3/dist-packages/ansible/modules/systemd.py
+<44.201.23.135> PUT /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmpca9p83oi TO /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0546184-6229-168821021015718/AnsiballZ_systemd.py
+<44.201.23.135> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' '[44.201.23.135]'
+<44.204.131.128> (0, b'sftp> put /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmph3cl6t07 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0406582-6228-165818918953374/AnsiballZ_systemd.py\n', b'')
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'chmod u+x /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0406582-6228-165818918953374/ /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0406582-6228-165818918953374/AnsiballZ_systemd.py && sleep 0'"'"''
+<44.201.23.135> (0, b'sftp> put /home/ubuntu/.ansible/tmp/ansible-local-61517o7fklfh/tmpca9p83oi /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0546184-6229-168821021015718/AnsiballZ_systemd.py\n', b'')
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'chmod u+x /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0546184-6229-168821021015718/ /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0546184-6229-168821021015718/AnsiballZ_systemd.py && sleep 0'"'"''
+<44.204.131.128> (0, b'', b'')
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' -tt 44.204.131.128 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-aucewetkmxnqedsvfgssknahaxaefstp ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0406582-6228-165818918953374/AnsiballZ_systemd.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<44.201.23.135> (0, b'', b'')
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' -tt 44.201.23.135 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-kjmxznwulcinifxxshurploiculianqy ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0546184-6229-168821021015718/AnsiballZ_systemd.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+Escalation succeeded
+<44.204.131.128> (0, b'\r\n{"name": "nginx", "changed": false, "status": {"Type": "forking", "ExitType": "main", "Restart": "no", "RestartMode": "normal", "PIDFile": "/run/nginx.pid", "NotifyAccess": "none", "RestartUSec": "100ms", "RestartSteps": "0", "RestartMaxDelayUSec": "infinity", "RestartUSecNext": "100ms", "TimeoutStartUSec": "1min 30s", "TimeoutStopUSec": "5s", "TimeoutAbortUSec": "5s", "TimeoutStartFailureMode": "terminate", "TimeoutStopFailureMode": "terminate", "RuntimeMaxUSec": "infinity", "RuntimeRandomizedExtraUSec": "0", "WatchdogUSec": "0", "WatchdogTimestampMonotonic": "0", "RootDirectoryStartOnly": "no", "RemainAfterExit": "no", "GuessMainPID": "yes", "MainPID": "598", "ControlPID": "0", "FileDescriptorStoreMax": "0", "NFileDescriptorStore": "0", "FileDescriptorStorePreserve": "restart", "StatusErrno": "0", "Result": "success", "ReloadResult": "success", "CleanResult": "success", "UID": "[not set]", "GID": "[not set]", "NRestarts": "0", "OOMPolicy": "stop", "ReloadSignal": "1", "ExecMainStartTimestamp": "Fri 2026-04-03 05:46:56 UTC", "ExecMainStartTimestampMonotonic": "7354485", "ExecMainExitTimestampMonotonic": "0", "ExecMainPID": "598", "ExecMainCode": "0", "ExecMainStatus": "0", "ExecStartPre": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -t -q -g daemon on; master_process on; ; ignore_errors=no ; start_time=[Fri 2026-04-03 05:46:55 UTC] ; stop_time=[Fri 2026-04-03 05:46:56 UTC] ; pid=532 ; code=exited ; status=0 }", "ExecStartPreEx": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -t -q -g daemon on; master_process on; ; flags= ; start_time=[Fri 2026-04-03 05:46:55 UTC] ; stop_time=[Fri 2026-04-03 05:46:56 UTC] ; pid=532 ; code=exited ; status=0 }", "ExecStart": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; ; ignore_errors=no ; start_time=[Fri 2026-04-03 05:46:56 UTC] ; stop_time=[Fri 2026-04-03 05:46:56 UTC] ; pid=578 ; code=exited ; status=0 }", "ExecStartEx": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; ; flags= ; start_time=[Fri 2026-04-03 05:46:56 UTC] ; stop_time=[Fri 2026-04-03 05:46:56 UTC] ; pid=578 ; code=exited ; status=0 }", "ExecReload": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; -s reload ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecReloadEx": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; -s reload ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecStop": "{ path=/sbin/start-stop-daemon ; argv[]=/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid ; ignore_errors=yes ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecStopEx": "{ path=/sbin/start-stop-daemon ; argv[]=/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid ; flags=ignore-failure ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "Slice": "system.slice", "ControlGroup": "/system.slice/nginx.service", "ControlGroupId": "3102", "MemoryCurrent": "3903488", "MemoryPeak": "4190208", "MemorySwapCurrent": "0", "MemorySwapPeak": "0", "MemoryZSwapCurrent": "0", "MemoryAvailable": "543977472", "CPUUsageNSec": "29422000", "TasksCurrent": "3", "IPIngressBytes": "[no data]", "IPIngressPackets": "[no data]", "IPEgressBytes": "[no data]", "IPEgressPackets": "[no data]", "IOReadBytes": "[not set]", "IOReadOperations": "[not set]", "IOWriteBytes": "[not set]", "IOWriteOperations": "[not set]", "Delegate": "no", "CPUAccounting": "yes", "CPUWeight": "[not set]", "StartupCPUWeight": "[not set]", "CPUShares": "[not set]", "StartupCPUShares": "[not set]", "CPUQuotaPerSecUSec": "infinity", "CPUQuotaPeriodUSec": "infinity", "IOAccounting": "no", "IOWeight": "[not set]", "StartupIOWeight": "[not set]", "BlockIOAccounting": "no", "BlockIOWeight": "[not set]", "StartupBlockIOWeight": "[not set]", "MemoryAccounting": "yes", "DefaultMemoryLow": "0", "DefaultStartupMemoryLow": "0", "DefaultMemoryMin": "0", "MemoryMin": "0", "MemoryLow": "0", "StartupMemoryLow": "0", "MemoryHigh": "infinity", "StartupMemoryHigh": "infinity", "MemoryMax": "infinity", "StartupMemoryMax": "infinity", "MemorySwapMax": "infinity", "StartupMemorySwapMax": "infinity", "MemoryZSwapMax": "infinity", "StartupMemoryZSwapMax": "infinity", "MemoryLimit": "infinity", "DevicePolicy": "auto", "TasksAccounting": "yes", "TasksMax": "1017", "IPAccounting": "no", "ManagedOOMSwap": "auto", "ManagedOOMMemoryPressure": "auto", "ManagedOOMMemoryPressureLimit": "0", "ManagedOOMPreference": "none", "MemoryPressureWatch": "auto", "MemoryPressureThresholdUSec": "200ms", "CoredumpReceive": "no", "UMask": "0022", "LimitCPU": "infinity", "LimitCPUSoft": "infinity", "LimitFSIZE": "infinity", "LimitFSIZESoft": "infinity", "LimitDATA": "infinity", "LimitDATASoft": "infinity", "LimitSTACK": "infinity", "LimitSTACKSoft": "8388608", "LimitCORE": "infinity", "LimitCORESoft": "0", "LimitRSS": "infinity", "LimitRSSSoft": "infinity", "LimitNOFILE": "524288", "LimitNOFILESoft": "1024", "LimitAS": "infinity", "LimitASSoft": "infinity", "LimitNPROC": "3392", "LimitNPROCSoft": "3392", "LimitMEMLOCK": "8388608", "LimitMEMLOCKSoft": "8388608", "LimitLOCKS": "infinity", "LimitLOCKSSoft": "infinity", "LimitSIGPENDING": "3392", "LimitSIGPENDINGSoft": "3392", "LimitMSGQUEUE": "819200", "LimitMSGQUEUESoft": "819200", "LimitNICE": "0", "LimitNICESoft": "0", "LimitRTPRIO": "0", "LimitRTPRIOSoft": "0", "LimitRTTIME": "infinity", "LimitRTTIMESoft": "infinity", "RootEphemeral": "no", "OOMScoreAdjust": "0", "CoredumpFilter": "0x33", "Nice": "0", "IOSchedulingClass": "2", "IOSchedulingPriority": "4", "CPUSchedulingPolicy": "0", "CPUSchedulingPriority": "0", "CPUAffinityFromNUMA": "no", "NUMAPolicy": "n/a", "TimerSlackNSec": "50000", "CPUSchedulingResetOnFork": "no", "NonBlocking": "no", "StandardInput": "null", "StandardOutput": "journal", "StandardError": "inherit", "TTYReset": "no", "TTYVHangup": "no", "TTYVTDisallocate": "no", "SyslogPriority": "30", "SyslogLevelPrefix": "yes", "SyslogLevel": "6", "SyslogFacility": "3", "LogLevelMax": "-1", "LogRateLimitIntervalUSec": "0", "LogRateLimitBurst": "0", "SecureBits": "0", "CapabilityBoundingSet": "cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore", "DynamicUser": "no", "SetLoginEnvironment": "no", "RemoveIPC": "no", "PrivateTmp": "no", "PrivateDevices": "no", "ProtectClock": "no", "ProtectKernelTunables": "no", "ProtectKernelModules": "no", "ProtectKernelLogs": "no", "ProtectControlGroups": "no", "PrivateNetwork": "no", "PrivateUsers": "no", "PrivateMounts": "no", "PrivateIPC": "no", "ProtectHome": "no", "ProtectSystem": "no", "SameProcessGroup": "no", "UtmpMode": "init", "IgnoreSIGPIPE": "yes", "NoNewPrivileges": "no", "SystemCallErrorNumber": "2147483646", "LockPersonality": "no", "RuntimeDirectoryPreserve": "no", "RuntimeDirectoryMode": "0755", "StateDirectoryMode": "0755", "CacheDirectoryMode": "0755", "LogsDirectoryMode": "0755", "ConfigurationDirectoryMode": "0755", "TimeoutCleanUSec": "infinity", "MemoryDenyWriteExecute": "no", "RestrictRealtime": "no", "RestrictSUIDSGID": "no", "RestrictNamespaces": "no", "MountAPIVFS": "no", "KeyringMode": "private", "ProtectProc": "default", "ProcSubset": "all", "ProtectHostname": "no", "MemoryKSM": "no", "RootImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "MountImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "ExtensionImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "KillMode": "mixed", "KillSignal": "15", "RestartKillSignal": "15", "FinalKillSignal": "9", "SendSIGKILL": "yes", "SendSIGHUP": "no", "WatchdogSignal": "6", "Id": "nginx.service", "Names": "nginx.service", "Requires": "system.slice sysinit.target", "Wants": "network-online.target", "WantedBy": "multi-user.target", "Conflicts": "shutdown.target", "Before": "shutdown.target multi-user.target", "After": "network-online.target basic.target sysinit.target nss-lookup.target system.slice remote-fs.target systemd-journald.socket", "Documentation": "\\"man:nginx(8)\\"", "Description": "A high performance web server and a reverse proxy server", "LoadState": "loaded", "ActiveState": "active", "FreezerState": "running", "SubState": "running", "FragmentPath": "/usr/lib/systemd/system/nginx.service", "UnitFileState": "enabled", "UnitFilePreset": "enabled", "StateChangeTimestamp": "Fri 2026-04-03 05:46:56 UTC", "StateChangeTimestampMonotonic": "7354534", "InactiveExitTimestamp": "Fri 2026-04-03 05:46:55 UTC", "InactiveExitTimestampMonotonic": "6841634", "ActiveEnterTimestamp": "Fri 2026-04-03 05:46:56 UTC", "ActiveEnterTimestampMonotonic": "7354534", "ActiveExitTimestampMonotonic": "0", "InactiveEnterTimestampMonotonic": "0", "CanStart": "yes", "CanStop": "yes", "CanReload": "yes", "CanIsolate": "no", "CanFreeze": "yes", "StopWhenUnneeded": "no", "RefuseManualStart": "no", "RefuseManualStop": "no", "AllowIsolate": "no", "DefaultDependencies": "yes", "SurviveFinalKillSignal": "no", "OnSuccessJobMode": "fail", "OnFailureJobMode": "replace", "IgnoreOnIsolate": "no", "NeedDaemonReload": "no", "JobTimeoutUSec": "infinity", "JobRunningTimeoutUSec": "infinity", "JobTimeoutAction": "none", "ConditionResult": "yes", "AssertResult": "yes", "ConditionTimestamp": "Fri 2026-04-03 05:46:55 UTC", "ConditionTimestampMonotonic": "6828806", "AssertTimestamp": "Fri 2026-04-03 05:46:55 UTC", "AssertTimestampMonotonic": "6828836", "Transient": "no", "Perpetual": "no", "StartLimitIntervalUSec": "10s", "StartLimitBurst": "5", "StartLimitAction": "none", "FailureAction": "none", "SuccessAction": "none", "InvocationID": "b9f94e91e35f44c18e7fc5f637e2fd4a", "CollectMode": "inactive"}, "state": "started", "invocation": {"module_args": {"name": "nginx", "state": "started", "daemon_reload": false, "daemon_reexec": false, "scope": "system", "no_block": false, "enabled": null, "force": null, "masked": null}}}\r\n', b'Shared connection to 44.204.131.128 closed.\r\n')
+<44.204.131.128> ESTABLISH SSH CONNECTION FOR USER: None
+<44.204.131.128> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/143bd58ae6"' 44.204.131.128 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0406582-6228-165818918953374/ > /dev/null 2>&1 && sleep 0'"'"''
+<44.201.23.135> (0, b'\r\n{"name": "nginx", "changed": false, "status": {"Type": "forking", "ExitType": "main", "Restart": "no", "RestartMode": "normal", "PIDFile": "/run/nginx.pid", "NotifyAccess": "none", "RestartUSec": "100ms", "RestartSteps": "0", "RestartMaxDelayUSec": "infinity", "RestartUSecNext": "100ms", "TimeoutStartUSec": "1min 30s", "TimeoutStopUSec": "5s", "TimeoutAbortUSec": "5s", "TimeoutStartFailureMode": "terminate", "TimeoutStopFailureMode": "terminate", "RuntimeMaxUSec": "infinity", "RuntimeRandomizedExtraUSec": "0", "WatchdogUSec": "0", "WatchdogTimestampMonotonic": "0", "RootDirectoryStartOnly": "no", "RemainAfterExit": "no", "GuessMainPID": "yes", "MainPID": "607", "ControlPID": "0", "FileDescriptorStoreMax": "0", "NFileDescriptorStore": "0", "FileDescriptorStorePreserve": "restart", "StatusErrno": "0", "Result": "success", "ReloadResult": "success", "CleanResult": "success", "UID": "[not set]", "GID": "[not set]", "NRestarts": "0", "OOMPolicy": "stop", "ReloadSignal": "1", "ExecMainStartTimestamp": "Fri 2026-04-03 05:46:55 UTC", "ExecMainStartTimestampMonotonic": "7330448", "ExecMainExitTimestampMonotonic": "0", "ExecMainPID": "607", "ExecMainCode": "0", "ExecMainStatus": "0", "ExecStartPre": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -t -q -g daemon on; master_process on; ; ignore_errors=no ; start_time=[Fri 2026-04-03 05:46:55 UTC] ; stop_time=[Fri 2026-04-03 05:46:55 UTC] ; pid=545 ; code=exited ; status=0 }", "ExecStartPreEx": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -t -q -g daemon on; master_process on; ; flags= ; start_time=[Fri 2026-04-03 05:46:55 UTC] ; stop_time=[Fri 2026-04-03 05:46:55 UTC] ; pid=545 ; code=exited ; status=0 }", "ExecStart": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; ; ignore_errors=no ; start_time=[Fri 2026-04-03 05:46:55 UTC] ; stop_time=[Fri 2026-04-03 05:46:55 UTC] ; pid=599 ; code=exited ; status=0 }", "ExecStartEx": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; ; flags= ; start_time=[Fri 2026-04-03 05:46:55 UTC] ; stop_time=[Fri 2026-04-03 05:46:55 UTC] ; pid=599 ; code=exited ; status=0 }", "ExecReload": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; -s reload ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecReloadEx": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; -s reload ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecStop": "{ path=/sbin/start-stop-daemon ; argv[]=/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid ; ignore_errors=yes ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "ExecStopEx": "{ path=/sbin/start-stop-daemon ; argv[]=/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid ; flags=ignore-failure ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", "Slice": "system.slice", "ControlGroup": "/system.slice/nginx.service", "ControlGroupId": "3188", "MemoryCurrent": "3895296", "MemoryPeak": "4194304", "MemorySwapCurrent": "0", "MemorySwapPeak": "0", "MemoryZSwapCurrent": "0", "MemoryAvailable": "561315840", "CPUUsageNSec": "25989000", "TasksCurrent": "3", "IPIngressBytes": "[no data]", "IPIngressPackets": "[no data]", "IPEgressBytes": "[no data]", "IPEgressPackets": "[no data]", "IOReadBytes": "[not set]", "IOReadOperations": "[not set]", "IOWriteBytes": "[not set]", "IOWriteOperations": "[not set]", "Delegate": "no", "CPUAccounting": "yes", "CPUWeight": "[not set]", "StartupCPUWeight": "[not set]", "CPUShares": "[not set]", "StartupCPUShares": "[not set]", "CPUQuotaPerSecUSec": "infinity", "CPUQuotaPeriodUSec": "infinity", "IOAccounting": "no", "IOWeight": "[not set]", "StartupIOWeight": "[not set]", "BlockIOAccounting": "no", "BlockIOWeight": "[not set]", "StartupBlockIOWeight": "[not set]", "MemoryAccounting": "yes", "DefaultMemoryLow": "0", "DefaultStartupMemoryLow": "0", "DefaultMemoryMin": "0", "MemoryMin": "0", "MemoryLow": "0", "StartupMemoryLow": "0", "MemoryHigh": "infinity", "StartupMemoryHigh": "infinity", "MemoryMax": "infinity", "StartupMemoryMax": "infinity", "MemorySwapMax": "infinity", "StartupMemorySwapMax": "infinity", "MemoryZSwapMax": "infinity", "StartupMemoryZSwapMax": "infinity", "MemoryLimit": "infinity", "DevicePolicy": "auto", "TasksAccounting": "yes", "TasksMax": "1017", "IPAccounting": "no", "ManagedOOMSwap": "auto", "ManagedOOMMemoryPressure": "auto", "ManagedOOMMemoryPressureLimit": "0", "ManagedOOMPreference": "none", "MemoryPressureWatch": "auto", "MemoryPressureThresholdUSec": "200ms", "CoredumpReceive": "no", "UMask": "0022", "LimitCPU": "infinity", "LimitCPUSoft": "infinity", "LimitFSIZE": "infinity", "LimitFSIZESoft": "infinity", "LimitDATA": "infinity", "LimitDATASoft": "infinity", "LimitSTACK": "infinity", "LimitSTACKSoft": "8388608", "LimitCORE": "infinity", "LimitCORESoft": "0", "LimitRSS": "infinity", "LimitRSSSoft": "infinity", "LimitNOFILE": "524288", "LimitNOFILESoft": "1024", "LimitAS": "infinity", "LimitASSoft": "infinity", "LimitNPROC": "3392", "LimitNPROCSoft": "3392", "LimitMEMLOCK": "8388608", "LimitMEMLOCKSoft": "8388608", "LimitLOCKS": "infinity", "LimitLOCKSSoft": "infinity", "LimitSIGPENDING": "3392", "LimitSIGPENDINGSoft": "3392", "LimitMSGQUEUE": "819200", "LimitMSGQUEUESoft": "819200", "LimitNICE": "0", "LimitNICESoft": "0", "LimitRTPRIO": "0", "LimitRTPRIOSoft": "0", "LimitRTTIME": "infinity", "LimitRTTIMESoft": "infinity", "RootEphemeral": "no", "OOMScoreAdjust": "0", "CoredumpFilter": "0x33", "Nice": "0", "IOSchedulingClass": "2", "IOSchedulingPriority": "4", "CPUSchedulingPolicy": "0", "CPUSchedulingPriority": "0", "CPUAffinityFromNUMA": "no", "NUMAPolicy": "n/a", "TimerSlackNSec": "50000", "CPUSchedulingResetOnFork": "no", "NonBlocking": "no", "StandardInput": "null", "StandardOutput": "journal", "StandardError": "inherit", "TTYReset": "no", "TTYVHangup": "no", "TTYVTDisallocate": "no", "SyslogPriority": "30", "SyslogLevelPrefix": "yes", "SyslogLevel": "6", "SyslogFacility": "3", "LogLevelMax": "-1", "LogRateLimitIntervalUSec": "0", "LogRateLimitBurst": "0", "SecureBits": "0", "CapabilityBoundingSet": "cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore", "DynamicUser": "no", "SetLoginEnvironment": "no", "RemoveIPC": "no", "PrivateTmp": "no", "PrivateDevices": "no", "ProtectClock": "no", "ProtectKernelTunables": "no", "ProtectKernelModules": "no", "ProtectKernelLogs": "no", "ProtectControlGroups": "no", "PrivateNetwork": "no", "PrivateUsers": "no", "PrivateMounts": "no", "PrivateIPC": "no", "ProtectHome": "no", "ProtectSystem": "no", "SameProcessGroup": "no", "UtmpMode": "init", "IgnoreSIGPIPE": "yes", "NoNewPrivileges": "no", "SystemCallErrorNumber": "2147483646", "LockPersonality": "no", "RuntimeDirectoryPreserve": "no", "RuntimeDirectoryMode": "0755", "StateDirectoryMode": "0755", "CacheDirectoryMode": "0755", "LogsDirectoryMode": "0755", "ConfigurationDirectoryMode": "0755", "TimeoutCleanUSec": "infinity", "MemoryDenyWriteExecute": "no", "RestrictRealtime": "no", "RestrictSUIDSGID": "no", "RestrictNamespaces": "no", "MountAPIVFS": "no", "KeyringMode": "private", "ProtectProc": "default", "ProcSubset": "all", "ProtectHostname": "no", "MemoryKSM": "no", "RootImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "MountImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "ExtensionImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent", "KillMode": "mixed", "KillSignal": "15", "RestartKillSignal": "15", "FinalKillSignal": "9", "SendSIGKILL": "yes", "SendSIGHUP": "no", "WatchdogSignal": "6", "Id": "nginx.service", "Names": "nginx.service", "Requires": "system.slice sysinit.target", "Wants": "network-online.target", "WantedBy": "multi-user.target", "Conflicts": "shutdown.target", "Before": "shutdown.target multi-user.target", "After": "nss-lookup.target basic.target systemd-journald.socket system.slice sysinit.target network-online.target remote-fs.target", "Documentation": "\\"man:nginx(8)\\"", "Description": "A high performance web server and a reverse proxy server", "LoadState": "loaded", "ActiveState": "active", "FreezerState": "running", "SubState": "running", "FragmentPath": "/usr/lib/systemd/system/nginx.service", "UnitFileState": "enabled", "UnitFilePreset": "enabled", "StateChangeTimestamp": "Fri 2026-04-03 05:46:55 UTC", "StateChangeTimestampMonotonic": "7330497", "InactiveExitTimestamp": "Fri 2026-04-03 05:46:55 UTC", "InactiveExitTimestampMonotonic": "6851747", "ActiveEnterTimestamp": "Fri 2026-04-03 05:46:55 UTC", "ActiveEnterTimestampMonotonic": "7330497", "ActiveExitTimestampMonotonic": "0", "InactiveEnterTimestampMonotonic": "0", "CanStart": "yes", "CanStop": "yes", "CanReload": "yes", "CanIsolate": "no", "CanFreeze": "yes", "StopWhenUnneeded": "no", "RefuseManualStart": "no", "RefuseManualStop": "no", "AllowIsolate": "no", "DefaultDependencies": "yes", "SurviveFinalKillSignal": "no", "OnSuccessJobMode": "fail", "OnFailureJobMode": "replace", "IgnoreOnIsolate": "no", "NeedDaemonReload": "no", "JobTimeoutUSec": "infinity", "JobRunningTimeoutUSec": "infinity", "JobTimeoutAction": "none", "ConditionResult": "yes", "AssertResult": "yes", "ConditionTimestamp": "Fri 2026-04-03 05:46:54 UTC", "ConditionTimestampMonotonic": "6842099", "AssertTimestamp": "Fri 2026-04-03 05:46:54 UTC", "AssertTimestampMonotonic": "6842141", "Transient": "no", "Perpetual": "no", "StartLimitIntervalUSec": "10s", "StartLimitBurst": "5", "StartLimitAction": "none", "FailureAction": "none", "SuccessAction": "none", "InvocationID": "556f75163cf645aabbe553bb407b3ca0", "CollectMode": "inactive"}, "state": "started", "invocation": {"module_args": {"name": "nginx", "state": "started", "daemon_reload": false, "daemon_reexec": false, "scope": "system", "no_block": false, "enabled": null, "force": null, "masked": null}}}\r\n', b'Shared connection to 44.201.23.135 closed.\r\n')
+<44.204.131.128> (0, b'', b'')
+<44.201.23.135> ESTABLISH SSH CONNECTION FOR USER: None
+<44.201.23.135> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'IdentityFile="/home/ubuntu/mywebserver-key.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o 'ControlPath="/home/ubuntu/.ansible/cp/36ff39aadd"' 44.201.23.135 '/bin/sh -c '"'"'rm -f -r /home/ubuntu/.ansible/tmp/ansible-tmp-1775195502.0546184-6229-168821021015718/ > /dev/null 2>&1 && sleep 0'"'"''
+ok: [ec2-44-204-131-128.compute-1.amazonaws.com] => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "daemon_reexec": false,
+            "daemon_reload": false,
+            "enabled": null,
+            "force": null,
+            "masked": null,
+            "name": "nginx",
+            "no_block": false,
+            "scope": "system",
+            "state": "started"
+        }
+    },
+    "name": "nginx",
+    "state": "started",
+    "status": {
+        "ActiveEnterTimestamp": "Fri 2026-04-03 05:46:56 UTC",
+        "ActiveEnterTimestampMonotonic": "7354534",
+        "ActiveExitTimestampMonotonic": "0",
+        "ActiveState": "active",
+        "After": "network-online.target basic.target sysinit.target nss-lookup.target system.slice remote-fs.target systemd-journald.socket",
+        "AllowIsolate": "no",
+        "AssertResult": "yes",
+        "AssertTimestamp": "Fri 2026-04-03 05:46:55 UTC",
+        "AssertTimestampMonotonic": "6828836",
+        "Before": "shutdown.target multi-user.target",
+        "BlockIOAccounting": "no",
+        "BlockIOWeight": "[not set]",
+        "CPUAccounting": "yes",
+        "CPUAffinityFromNUMA": "no",
+        "CPUQuotaPerSecUSec": "infinity",
+        "CPUQuotaPeriodUSec": "infinity",
+        "CPUSchedulingPolicy": "0",
+        "CPUSchedulingPriority": "0",
+        "CPUSchedulingResetOnFork": "no",
+        "CPUShares": "[not set]",
+        "CPUUsageNSec": "29422000",
+        "CPUWeight": "[not set]",
+        "CacheDirectoryMode": "0755",
+        "CanFreeze": "yes",
+        "CanIsolate": "no",
+        "CanReload": "yes",
+        "CanStart": "yes",
+        "CanStop": "yes",
+        "CapabilityBoundingSet": "cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore",
+        "CleanResult": "success",
+        "CollectMode": "inactive",
+        "ConditionResult": "yes",
+        "ConditionTimestamp": "Fri 2026-04-03 05:46:55 UTC",
+        "ConditionTimestampMonotonic": "6828806",
+        "ConfigurationDirectoryMode": "0755",
+        "Conflicts": "shutdown.target",
+        "ControlGroup": "/system.slice/nginx.service",
+        "ControlGroupId": "3102",
+        "ControlPID": "0",
+        "CoredumpFilter": "0x33",
+        "CoredumpReceive": "no",
+        "DefaultDependencies": "yes",
+        "DefaultMemoryLow": "0",
+        "DefaultMemoryMin": "0",
+        "DefaultStartupMemoryLow": "0",
+        "Delegate": "no",
+        "Description": "A high performance web server and a reverse proxy server",
+        "DevicePolicy": "auto",
+        "Documentation": "\"man:nginx(8)\"",
+        "DynamicUser": "no",
+        "ExecMainCode": "0",
+        "ExecMainExitTimestampMonotonic": "0",
+        "ExecMainPID": "598",
+        "ExecMainStartTimestamp": "Fri 2026-04-03 05:46:56 UTC",
+        "ExecMainStartTimestampMonotonic": "7354485",
+        "ExecMainStatus": "0",
+        "ExecReload": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; -s reload ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecReloadEx": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; -s reload ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStart": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; ; ignore_errors=no ; start_time=[Fri 2026-04-03 05:46:56 UTC] ; stop_time=[Fri 2026-04-03 05:46:56 UTC] ; pid=578 ; code=exited ; status=0 }",
+        "ExecStartEx": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; ; flags= ; start_time=[Fri 2026-04-03 05:46:56 UTC] ; stop_time=[Fri 2026-04-03 05:46:56 UTC] ; pid=578 ; code=exited ; status=0 }",
+        "ExecStartPre": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -t -q -g daemon on; master_process on; ; ignore_errors=no ; start_time=[Fri 2026-04-03 05:46:55 UTC] ; stop_time=[Fri 2026-04-03 05:46:56 UTC] ; pid=532 ; code=exited ; status=0 }",
+        "ExecStartPreEx": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -t -q -g daemon on; master_process on; ; flags= ; start_time=[Fri 2026-04-03 05:46:55 UTC] ; stop_time=[Fri 2026-04-03 05:46:56 UTC] ; pid=532 ; code=exited ; status=0 }",
+        "ExecStop": "{ path=/sbin/start-stop-daemon ; argv[]=/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid ; ignore_errors=yes ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStopEx": "{ path=/sbin/start-stop-daemon ; argv[]=/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid ; flags=ignore-failure ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExitType": "main",
+        "ExtensionImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "FailureAction": "none",
+        "FileDescriptorStoreMax": "0",
+        "FileDescriptorStorePreserve": "restart",
+        "FinalKillSignal": "9",
+        "FragmentPath": "/usr/lib/systemd/system/nginx.service",
+        "FreezerState": "running",
+        "GID": "[not set]",
+        "GuessMainPID": "yes",
+        "IOAccounting": "no",
+        "IOReadBytes": "[not set]",
+        "IOReadOperations": "[not set]",
+        "IOSchedulingClass": "2",
+        "IOSchedulingPriority": "4",
+        "IOWeight": "[not set]",
+        "IOWriteBytes": "[not set]",
+        "IOWriteOperations": "[not set]",
+        "IPAccounting": "no",
+        "IPEgressBytes": "[no data]",
+        "IPEgressPackets": "[no data]",
+        "IPIngressBytes": "[no data]",
+        "IPIngressPackets": "[no data]",
+        "Id": "nginx.service",
+        "IgnoreOnIsolate": "no",
+        "IgnoreSIGPIPE": "yes",
+        "InactiveEnterTimestampMonotonic": "0",
+        "InactiveExitTimestamp": "Fri 2026-04-03 05:46:55 UTC",
+        "InactiveExitTimestampMonotonic": "6841634",
+        "InvocationID": "b9f94e91e35f44c18e7fc5f637e2fd4a",
+        "JobRunningTimeoutUSec": "infinity",
+        "JobTimeoutAction": "none",
+        "JobTimeoutUSec": "infinity",
+        "KeyringMode": "private",
+        "KillMode": "mixed",
+        "KillSignal": "15",
+        "LimitAS": "infinity",
+        "LimitASSoft": "infinity",
+        "LimitCORE": "infinity",
+        "LimitCORESoft": "0",
+        "LimitCPU": "infinity",
+        "LimitCPUSoft": "infinity",
+        "LimitDATA": "infinity",
+        "LimitDATASoft": "infinity",
+        "LimitFSIZE": "infinity",
+        "LimitFSIZESoft": "infinity",
+        "LimitLOCKS": "infinity",
+        "LimitLOCKSSoft": "infinity",
+        "LimitMEMLOCK": "8388608",
+        "LimitMEMLOCKSoft": "8388608",
+        "LimitMSGQUEUE": "819200",
+        "LimitMSGQUEUESoft": "819200",
+        "LimitNICE": "0",
+        "LimitNICESoft": "0",
+        "LimitNOFILE": "524288",
+        "LimitNOFILESoft": "1024",
+        "LimitNPROC": "3392",
+        "LimitNPROCSoft": "3392",
+        "LimitRSS": "infinity",
+        "LimitRSSSoft": "infinity",
+        "LimitRTPRIO": "0",
+        "LimitRTPRIOSoft": "0",
+        "LimitRTTIME": "infinity",
+        "LimitRTTIMESoft": "infinity",
+        "LimitSIGPENDING": "3392",
+        "LimitSIGPENDINGSoft": "3392",
+        "LimitSTACK": "infinity",
+        "LimitSTACKSoft": "8388608",
+        "LoadState": "loaded",
+        "LockPersonality": "no",
+        "LogLevelMax": "-1",
+        "LogRateLimitBurst": "0",
+        "LogRateLimitIntervalUSec": "0",
+        "LogsDirectoryMode": "0755",
+        "MainPID": "598",
+        "ManagedOOMMemoryPressure": "auto",
+        "ManagedOOMMemoryPressureLimit": "0",
+        "ManagedOOMPreference": "none",
+        "ManagedOOMSwap": "auto",
+        "MemoryAccounting": "yes",
+        "MemoryAvailable": "543977472",
+        "MemoryCurrent": "3903488",
+        "MemoryDenyWriteExecute": "no",
+        "MemoryHigh": "infinity",
+        "MemoryKSM": "no",
+        "MemoryLimit": "infinity",
+        "MemoryLow": "0",
+        "MemoryMax": "infinity",
+        "MemoryMin": "0",
+        "MemoryPeak": "4190208",
+        "MemoryPressureThresholdUSec": "200ms",
+        "MemoryPressureWatch": "auto",
+        "MemorySwapCurrent": "0",
+        "MemorySwapMax": "infinity",
+        "MemorySwapPeak": "0",
+        "MemoryZSwapCurrent": "0",
+        "MemoryZSwapMax": "infinity",
+        "MountAPIVFS": "no",
+        "MountImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "NFileDescriptorStore": "0",
+        "NRestarts": "0",
+        "NUMAPolicy": "n/a",
+        "Names": "nginx.service",
+        "NeedDaemonReload": "no",
+        "Nice": "0",
+        "NoNewPrivileges": "no",
+        "NonBlocking": "no",
+        "NotifyAccess": "none",
+        "OOMPolicy": "stop",
+        "OOMScoreAdjust": "0",
+        "OnFailureJobMode": "replace",
+        "OnSuccessJobMode": "fail",
+        "PIDFile": "/run/nginx.pid",
+        "Perpetual": "no",
+        "PrivateDevices": "no",
+        "PrivateIPC": "no",
+        "PrivateMounts": "no",
+        "PrivateNetwork": "no",
+        "PrivateTmp": "no",
+        "PrivateUsers": "no",
+        "ProcSubset": "all",
+        "ProtectClock": "no",
+        "ProtectControlGroups": "no",
+        "ProtectHome": "no",
+        "ProtectHostname": "no",
+        "ProtectKernelLogs": "no",
+        "ProtectKernelModules": "no",
+        "ProtectKernelTunables": "no",
+        "ProtectProc": "default",
+        "ProtectSystem": "no",
+        "RefuseManualStart": "no",
+        "RefuseManualStop": "no",
+        "ReloadResult": "success",
+        "ReloadSignal": "1",
+        "RemainAfterExit": "no",
+        "RemoveIPC": "no",
+        "Requires": "system.slice sysinit.target",
+        "Restart": "no",
+        "RestartKillSignal": "15",
+        "RestartMaxDelayUSec": "infinity",
+        "RestartMode": "normal",
+        "RestartSteps": "0",
+        "RestartUSec": "100ms",
+        "RestartUSecNext": "100ms",
+        "RestrictNamespaces": "no",
+        "RestrictRealtime": "no",
+        "RestrictSUIDSGID": "no",
+        "Result": "success",
+        "RootDirectoryStartOnly": "no",
+        "RootEphemeral": "no",
+        "RootImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "RuntimeDirectoryMode": "0755",
+        "RuntimeDirectoryPreserve": "no",
+        "RuntimeMaxUSec": "infinity",
+        "RuntimeRandomizedExtraUSec": "0",
+        "SameProcessGroup": "no",
+        "SecureBits": "0",
+        "SendSIGHUP": "no",
+        "SendSIGKILL": "yes",
+        "SetLoginEnvironment": "no",
+        "Slice": "system.slice",
+        "StandardError": "inherit",
+        "StandardInput": "null",
+        "StandardOutput": "journal",
+        "StartLimitAction": "none",
+        "StartLimitBurst": "5",
+        "StartLimitIntervalUSec": "10s",
+        "StartupBlockIOWeight": "[not set]",
+        "StartupCPUShares": "[not set]",
+        "StartupCPUWeight": "[not set]",
+        "StartupIOWeight": "[not set]",
+        "StartupMemoryHigh": "infinity",
+        "StartupMemoryLow": "0",
+        "StartupMemoryMax": "infinity",
+        "StartupMemorySwapMax": "infinity",
+        "StartupMemoryZSwapMax": "infinity",
+        "StateChangeTimestamp": "Fri 2026-04-03 05:46:56 UTC",
+        "StateChangeTimestampMonotonic": "7354534",
+        "StateDirectoryMode": "0755",
+        "StatusErrno": "0",
+        "StopWhenUnneeded": "no",
+        "SubState": "running",
+        "SuccessAction": "none",
+        "SurviveFinalKillSignal": "no",
+        "SyslogFacility": "3",
+        "SyslogLevel": "6",
+        "SyslogLevelPrefix": "yes",
+        "SyslogPriority": "30",
+        "SystemCallErrorNumber": "2147483646",
+        "TTYReset": "no",
+        "TTYVHangup": "no",
+        "TTYVTDisallocate": "no",
+        "TasksAccounting": "yes",
+        "TasksCurrent": "3",
+        "TasksMax": "1017",
+        "TimeoutAbortUSec": "5s",
+        "TimeoutCleanUSec": "infinity",
+        "TimeoutStartFailureMode": "terminate",
+        "TimeoutStartUSec": "1min 30s",
+        "TimeoutStopFailureMode": "terminate",
+        "TimeoutStopUSec": "5s",
+        "TimerSlackNSec": "50000",
+        "Transient": "no",
+        "Type": "forking",
+        "UID": "[not set]",
+        "UMask": "0022",
+        "UnitFilePreset": "enabled",
+        "UnitFileState": "enabled",
+        "UtmpMode": "init",
+        "WantedBy": "multi-user.target",
+        "Wants": "network-online.target",
+        "WatchdogSignal": "6",
+        "WatchdogTimestampMonotonic": "0",
+        "WatchdogUSec": "0"
+    }
+}
+<44.201.23.135> (0, b'', b'')
+ok: [ec2-44-201-23-135.compute-1.amazonaws.com] => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "daemon_reexec": false,
+            "daemon_reload": false,
+            "enabled": null,
+            "force": null,
+            "masked": null,
+            "name": "nginx",
+            "no_block": false,
+            "scope": "system",
+            "state": "started"
+        }
+    },
+    "name": "nginx",
+    "state": "started",
+    "status": {
+        "ActiveEnterTimestamp": "Fri 2026-04-03 05:46:55 UTC",
+        "ActiveEnterTimestampMonotonic": "7330497",
+        "ActiveExitTimestampMonotonic": "0",
+        "ActiveState": "active",
+        "After": "nss-lookup.target basic.target systemd-journald.socket system.slice sysinit.target network-online.target remote-fs.target",
+        "AllowIsolate": "no",
+        "AssertResult": "yes",
+        "AssertTimestamp": "Fri 2026-04-03 05:46:54 UTC",
+        "AssertTimestampMonotonic": "6842141",
+        "Before": "shutdown.target multi-user.target",
+        "BlockIOAccounting": "no",
+        "BlockIOWeight": "[not set]",
+        "CPUAccounting": "yes",
+        "CPUAffinityFromNUMA": "no",
+        "CPUQuotaPerSecUSec": "infinity",
+        "CPUQuotaPeriodUSec": "infinity",
+        "CPUSchedulingPolicy": "0",
+        "CPUSchedulingPriority": "0",
+        "CPUSchedulingResetOnFork": "no",
+        "CPUShares": "[not set]",
+        "CPUUsageNSec": "25989000",
+        "CPUWeight": "[not set]",
+        "CacheDirectoryMode": "0755",
+        "CanFreeze": "yes",
+        "CanIsolate": "no",
+        "CanReload": "yes",
+        "CanStart": "yes",
+        "CanStop": "yes",
+        "CapabilityBoundingSet": "cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore",
+        "CleanResult": "success",
+        "CollectMode": "inactive",
+        "ConditionResult": "yes",
+        "ConditionTimestamp": "Fri 2026-04-03 05:46:54 UTC",
+        "ConditionTimestampMonotonic": "6842099",
+        "ConfigurationDirectoryMode": "0755",
+        "Conflicts": "shutdown.target",
+        "ControlGroup": "/system.slice/nginx.service",
+        "ControlGroupId": "3188",
+        "ControlPID": "0",
+        "CoredumpFilter": "0x33",
+        "CoredumpReceive": "no",
+        "DefaultDependencies": "yes",
+        "DefaultMemoryLow": "0",
+        "DefaultMemoryMin": "0",
+        "DefaultStartupMemoryLow": "0",
+        "Delegate": "no",
+        "Description": "A high performance web server and a reverse proxy server",
+        "DevicePolicy": "auto",
+        "Documentation": "\"man:nginx(8)\"",
+        "DynamicUser": "no",
+        "ExecMainCode": "0",
+        "ExecMainExitTimestampMonotonic": "0",
+        "ExecMainPID": "607",
+        "ExecMainStartTimestamp": "Fri 2026-04-03 05:46:55 UTC",
+        "ExecMainStartTimestampMonotonic": "7330448",
+        "ExecMainStatus": "0",
+        "ExecReload": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; -s reload ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecReloadEx": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; -s reload ; flags= ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStart": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; ; ignore_errors=no ; start_time=[Fri 2026-04-03 05:46:55 UTC] ; stop_time=[Fri 2026-04-03 05:46:55 UTC] ; pid=599 ; code=exited ; status=0 }",
+        "ExecStartEx": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -g daemon on; master_process on; ; flags= ; start_time=[Fri 2026-04-03 05:46:55 UTC] ; stop_time=[Fri 2026-04-03 05:46:55 UTC] ; pid=599 ; code=exited ; status=0 }",
+        "ExecStartPre": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -t -q -g daemon on; master_process on; ; ignore_errors=no ; start_time=[Fri 2026-04-03 05:46:55 UTC] ; stop_time=[Fri 2026-04-03 05:46:55 UTC] ; pid=545 ; code=exited ; status=0 }",
+        "ExecStartPreEx": "{ path=/usr/sbin/nginx ; argv[]=/usr/sbin/nginx -t -q -g daemon on; master_process on; ; flags= ; start_time=[Fri 2026-04-03 05:46:55 UTC] ; stop_time=[Fri 2026-04-03 05:46:55 UTC] ; pid=545 ; code=exited ; status=0 }",
+        "ExecStop": "{ path=/sbin/start-stop-daemon ; argv[]=/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid ; ignore_errors=yes ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStopEx": "{ path=/sbin/start-stop-daemon ; argv[]=/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid ; flags=ignore-failure ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExitType": "main",
+        "ExtensionImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "FailureAction": "none",
+        "FileDescriptorStoreMax": "0",
+        "FileDescriptorStorePreserve": "restart",
+        "FinalKillSignal": "9",
+        "FragmentPath": "/usr/lib/systemd/system/nginx.service",
+        "FreezerState": "running",
+        "GID": "[not set]",
+        "GuessMainPID": "yes",
+        "IOAccounting": "no",
+        "IOReadBytes": "[not set]",
+        "IOReadOperations": "[not set]",
+        "IOSchedulingClass": "2",
+        "IOSchedulingPriority": "4",
+        "IOWeight": "[not set]",
+        "IOWriteBytes": "[not set]",
+        "IOWriteOperations": "[not set]",
+        "IPAccounting": "no",
+        "IPEgressBytes": "[no data]",
+        "IPEgressPackets": "[no data]",
+        "IPIngressBytes": "[no data]",
+        "IPIngressPackets": "[no data]",
+        "Id": "nginx.service",
+        "IgnoreOnIsolate": "no",
+        "IgnoreSIGPIPE": "yes",
+        "InactiveEnterTimestampMonotonic": "0",
+        "InactiveExitTimestamp": "Fri 2026-04-03 05:46:55 UTC",
+        "InactiveExitTimestampMonotonic": "6851747",
+        "InvocationID": "556f75163cf645aabbe553bb407b3ca0",
+        "JobRunningTimeoutUSec": "infinity",
+        "JobTimeoutAction": "none",
+        "JobTimeoutUSec": "infinity",
+        "KeyringMode": "private",
+        "KillMode": "mixed",
+        "KillSignal": "15",
+        "LimitAS": "infinity",
+        "LimitASSoft": "infinity",
+        "LimitCORE": "infinity",
+        "LimitCORESoft": "0",
+        "LimitCPU": "infinity",
+        "LimitCPUSoft": "infinity",
+        "LimitDATA": "infinity",
+        "LimitDATASoft": "infinity",
+        "LimitFSIZE": "infinity",
+        "LimitFSIZESoft": "infinity",
+        "LimitLOCKS": "infinity",
+        "LimitLOCKSSoft": "infinity",
+        "LimitMEMLOCK": "8388608",
+        "LimitMEMLOCKSoft": "8388608",
+        "LimitMSGQUEUE": "819200",
+        "LimitMSGQUEUESoft": "819200",
+        "LimitNICE": "0",
+        "LimitNICESoft": "0",
+        "LimitNOFILE": "524288",
+        "LimitNOFILESoft": "1024",
+        "LimitNPROC": "3392",
+        "LimitNPROCSoft": "3392",
+        "LimitRSS": "infinity",
+        "LimitRSSSoft": "infinity",
+        "LimitRTPRIO": "0",
+        "LimitRTPRIOSoft": "0",
+        "LimitRTTIME": "infinity",
+        "LimitRTTIMESoft": "infinity",
+        "LimitSIGPENDING": "3392",
+        "LimitSIGPENDINGSoft": "3392",
+        "LimitSTACK": "infinity",
+        "LimitSTACKSoft": "8388608",
+        "LoadState": "loaded",
+        "LockPersonality": "no",
+        "LogLevelMax": "-1",
+        "LogRateLimitBurst": "0",
+        "LogRateLimitIntervalUSec": "0",
+        "LogsDirectoryMode": "0755",
+        "MainPID": "607",
+        "ManagedOOMMemoryPressure": "auto",
+        "ManagedOOMMemoryPressureLimit": "0",
+        "ManagedOOMPreference": "none",
+        "ManagedOOMSwap": "auto",
+        "MemoryAccounting": "yes",
+        "MemoryAvailable": "561315840",
+        "MemoryCurrent": "3895296",
+        "MemoryDenyWriteExecute": "no",
+        "MemoryHigh": "infinity",
+        "MemoryKSM": "no",
+        "MemoryLimit": "infinity",
+        "MemoryLow": "0",
+        "MemoryMax": "infinity",
+        "MemoryMin": "0",
+        "MemoryPeak": "4194304",
+        "MemoryPressureThresholdUSec": "200ms",
+        "MemoryPressureWatch": "auto",
+        "MemorySwapCurrent": "0",
+        "MemorySwapMax": "infinity",
+        "MemorySwapPeak": "0",
+        "MemoryZSwapCurrent": "0",
+        "MemoryZSwapMax": "infinity",
+        "MountAPIVFS": "no",
+        "MountImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "NFileDescriptorStore": "0",
+        "NRestarts": "0",
+        "NUMAPolicy": "n/a",
+        "Names": "nginx.service",
+        "NeedDaemonReload": "no",
+        "Nice": "0",
+        "NoNewPrivileges": "no",
+        "NonBlocking": "no",
+        "NotifyAccess": "none",
+        "OOMPolicy": "stop",
+        "OOMScoreAdjust": "0",
+        "OnFailureJobMode": "replace",
+        "OnSuccessJobMode": "fail",
+        "PIDFile": "/run/nginx.pid",
+        "Perpetual": "no",
+        "PrivateDevices": "no",
+        "PrivateIPC": "no",
+        "PrivateMounts": "no",
+        "PrivateNetwork": "no",
+        "PrivateTmp": "no",
+        "PrivateUsers": "no",
+        "ProcSubset": "all",
+        "ProtectClock": "no",
+        "ProtectControlGroups": "no",
+        "ProtectHome": "no",
+        "ProtectHostname": "no",
+        "ProtectKernelLogs": "no",
+        "ProtectKernelModules": "no",
+        "ProtectKernelTunables": "no",
+        "ProtectProc": "default",
+        "ProtectSystem": "no",
+        "RefuseManualStart": "no",
+        "RefuseManualStop": "no",
+        "ReloadResult": "success",
+        "ReloadSignal": "1",
+        "RemainAfterExit": "no",
+        "RemoveIPC": "no",
+        "Requires": "system.slice sysinit.target",
+        "Restart": "no",
+        "RestartKillSignal": "15",
+        "RestartMaxDelayUSec": "infinity",
+        "RestartMode": "normal",
+        "RestartSteps": "0",
+        "RestartUSec": "100ms",
+        "RestartUSecNext": "100ms",
+        "RestrictNamespaces": "no",
+        "RestrictRealtime": "no",
+        "RestrictSUIDSGID": "no",
+        "Result": "success",
+        "RootDirectoryStartOnly": "no",
+        "RootEphemeral": "no",
+        "RootImagePolicy": "root=verity+signed+encrypted+unprotected+absent:usr=verity+signed+encrypted+unprotected+absent:home=encrypted+unprotected+absent:srv=encrypted+unprotected+absent:tmp=encrypted+unprotected+absent:var=encrypted+unprotected+absent",
+        "RuntimeDirectoryMode": "0755",
+        "RuntimeDirectoryPreserve": "no",
+        "RuntimeMaxUSec": "infinity",
+        "RuntimeRandomizedExtraUSec": "0",
+        "SameProcessGroup": "no",
+        "SecureBits": "0",
+        "SendSIGHUP": "no",
+        "SendSIGKILL": "yes",
+        "SetLoginEnvironment": "no",
+        "Slice": "system.slice",
+        "StandardError": "inherit",
+        "StandardInput": "null",
+        "StandardOutput": "journal",
+        "StartLimitAction": "none",
+        "StartLimitBurst": "5",
+        "StartLimitIntervalUSec": "10s",
+        "StartupBlockIOWeight": "[not set]",
+        "StartupCPUShares": "[not set]",
+        "StartupCPUWeight": "[not set]",
+        "StartupIOWeight": "[not set]",
+        "StartupMemoryHigh": "infinity",
+        "StartupMemoryLow": "0",
+        "StartupMemoryMax": "infinity",
+        "StartupMemorySwapMax": "infinity",
+        "StartupMemoryZSwapMax": "infinity",
+        "StateChangeTimestamp": "Fri 2026-04-03 05:46:55 UTC",
+        "StateChangeTimestampMonotonic": "7330497",
+        "StateDirectoryMode": "0755",
+        "StatusErrno": "0",
+        "StopWhenUnneeded": "no",
+        "SubState": "running",
+        "SuccessAction": "none",
+        "SurviveFinalKillSignal": "no",
+        "SyslogFacility": "3",
+        "SyslogLevel": "6",
+        "SyslogLevelPrefix": "yes",
+        "SyslogPriority": "30",
+        "SystemCallErrorNumber": "2147483646",
+        "TTYReset": "no",
+        "TTYVHangup": "no",
+        "TTYVTDisallocate": "no",
+        "TasksAccounting": "yes",
+        "TasksCurrent": "3",
+        "TasksMax": "1017",
+        "TimeoutAbortUSec": "5s",
+        "TimeoutCleanUSec": "infinity",
+        "TimeoutStartFailureMode": "terminate",
+        "TimeoutStartUSec": "1min 30s",
+        "TimeoutStopFailureMode": "terminate",
+        "TimeoutStopUSec": "5s",
+        "TimerSlackNSec": "50000",
+        "Transient": "no",
+        "Type": "forking",
+        "UID": "[not set]",
+        "UMask": "0022",
+        "UnitFilePreset": "enabled",
+        "UnitFileState": "enabled",
+        "UtmpMode": "init",
+        "WantedBy": "multi-user.target",
+        "Wants": "network-online.target",
+        "WatchdogSignal": "6",
+        "WatchdogTimestampMonotonic": "0",
+        "WatchdogUSec": "0"
+    }
+}
+
+PLAY RECAP *********************************************************************
+ec2-3-239-234-89.compute-1.amazonaws.com : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ec2-44-201-23-135.compute-1.amazonaws.com : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ec2-44-204-131-128.compute-1.amazonaws.com : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
