@@ -1,0 +1,11 @@
+- name: Configure Apache server
+  hosts: tag_apache
+  become: yes
+  roles:
+    - apache
+
+- name: Configure Nginx server
+  hosts: tag_nginx
+  become: yes
+  roles:
+    - nginx
