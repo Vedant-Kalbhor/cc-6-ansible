@@ -1,0 +1,65 @@
+- name: Collect monitoring data from all EC2 nodes
+  hosts: aws_ec2
+  become: yes
+  gather_facts: yes
+
+  tasks:
+    - name: Collect system and service data
+      ansible.builtin.shell: |
+        set -o pipefail
+        {
+          echo "============================================================"
+          echo "Host: {{ inventory_hostname }}"
+          echo "FQDN: {{ ansible_fqdn }}"
+          echo "Date: {{ ansible_date_time.iso8601 }}"
+          echo "IP: {{ ansible_default_ipv4.address | default('N/A') }}"
+          echo
+          echo "### Uptime"
+          uptime
+          echo
+          echo "### CPU / Memory"
+          free -h
+          echo
+          echo "### Disk Usage"
+          df -h
+          echo
+          echo "### Listening Ports"
+          ss -lntp
+          echo
+          echo "### Apache Status"
+          systemctl status apache2 --no-pager || true
+          echo
+          echo "### Nginx Status"
+          systemctl status nginx --no-pager || true
+          echo
+          echo "### Apache Journal"
+          journalctl -u apache2 -n 25 --no-pager || true
+          echo
+          echo "### Nginx Journal"
+          journalctl -u nginx -n 25 --no-pager || true
+          echo
+        }
+      register: host_report
+      changed_when: false
+      failed_when: false
+
+- name: Write consolidated report on controller
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: Ensure reports directory exists
+      ansible.builtin.file:
+        path: ./reports
+        state: directory
+
+    - name: Save monitoring report
+      ansible.builtin.copy:
+        dest: "./reports/monitoring-report-{{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}.txt"
+        content: |
+          Ansible Monitoring Report
+          Generated at: {{ lookup('pipe', 'date -Iseconds') }}
+
+          {% for host in (groups['aws_ec2'] | default([])) %}
+          {{ hostvars[host].host_report.stdout | default('No report collected for ' ~ host) }}
+          {% endfor %}

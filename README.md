@@ -30,7 +30,7 @@ sudo apt install -y ansible python3-pip awscli
 python3 -m pip install --user boto3 botocore
 ansible-galaxy collection install -r requirements.yml
 aws configure
-chmod 400 /home/ubuntu/mywebserver-key.pem
+chmod 400 /home/ubuntu/aws-1-key.pem
 ```
 
 ## Run
@@ -42,3 +42,14 @@ ansible tag_apache -m ping
 ansible tag_nginx -m ping
 ansible-playbook site.yml
 ```
+
+## Collect logs and monitoring data
+
+Run this from the EC2 master node only:
+
+```bash
+cd ~/ansible-project
+ansible-playbook collect_logs.yml | tee ansible_logs_saved.log
+```
+
+This playbook connects to all EC2 nodes, collects system and service status, and writes a consolidated report under `./reports/` on the master node.
