@@ -4,27 +4,98 @@
   gather_facts: yes
 
   tasks:
-    - name: Collect system and service data
+    - name: Collect extended system and log data
       ansible.builtin.shell: |
-        set -o pipefail
+        set -e
+
+        collect_file() {
+          local path="$1"
+          if [ -e "$path" ]; then
+            echo
+            echo "============================================================"
+            echo "FILE: $path"
+            ls -lh "$path" 2>/dev/null || true
+            file "$path" 2>/dev/null || true
+            if [ -r "$path" ]; then
+              echo
+              echo "--- HEAD 50 ---"
+              sed -n '1,50p' "$path" 2>/dev/null || true
+              echo
+              echo "--- TAIL 200 ---"
+              tail -n 200 "$path" 2>/dev/null || true
+            fi
+          fi
+        }
+
+        collect_rotated_file() {
+          local path="$1"
+          if [ -e "$path" ]; then
+            echo
+            echo "============================================================"
+            echo "ROTATED FILE: $path"
+            ls -lh "$path" 2>/dev/null || true
+            file "$path" 2>/dev/null || true
+            echo
+            echo "--- CONTENT ---"
+            case "$path" in
+              *.gz)
+                if command -v zcat >/dev/null 2>&1; then zcat "$path" 2>/dev/null || true; fi
+                ;;
+              *.xz)
+                if command -v xzcat >/dev/null 2>&1; then xzcat "$path" 2>/dev/null || true; fi
+                ;;
+              *.bz2)
+                if command -v bzcat >/dev/null 2>&1; then bzcat "$path" 2>/dev/null || true; fi
+                ;;
+              *) cat "$path" 2>/dev/null || true ;;
+            esac
+          fi
+        }
+
         {
           echo "============================================================"
           echo "Host: {{ inventory_hostname }}"
           echo "FQDN: {{ ansible_fqdn }}"
           echo "Date: {{ ansible_date_time.iso8601 }}"
           echo "IP: {{ ansible_default_ipv4.address | default('N/A') }}"
+          echo "OS: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+          echo "Kernel: {{ ansible_kernel }}"
+          echo "Architecture: {{ ansible_architecture }}"
+          echo "Uptime Seconds: {{ ansible_uptime_seconds }}"
+          echo "Package Manager: {{ ansible_pkg_mgr }}"
           echo
-          echo "### Uptime"
+          echo "### Uptime / Sessions"
+          uname -a
           uptime
+          who -a || true
+          last -a -n 10 || true
           echo
           echo "### CPU / Memory"
+          lscpu || true
           free -h
+          vmstat 1 5 || true
           echo
-          echo "### Disk Usage"
+          echo "### Disk / Filesystems"
           df -h
+          df -hT
+          lsblk -a
+          mount
           echo
-          echo "### Listening Ports"
+          echo "### Network"
+          ip addr show
+          ip route show
           ss -lntp
+          ss -tupan || true
+          echo
+          echo "### Running Services"
+          systemctl list-units --type=service --state=running --no-pager || true
+          systemctl list-unit-files --type=service --no-pager || true
+          echo
+          echo "### Processes"
+          ps -eo pid,ppid,user,%cpu,%mem,stat,etime,cmd --sort=-%cpu | head -n 60
+          echo
+          echo "### Installed Packages"
+          dpkg -l | egrep 'apache2|nginx|openssh|curl|wget|python3|ansible|awscli' || true
           echo
           echo "### Apache Status"
           systemctl status apache2 --no-pager || true
@@ -32,11 +103,49 @@
           echo "### Nginx Status"
           systemctl status nginx --no-pager || true
           echo
+          echo "### Full System Journal (last 500 lines)"
+          journalctl --no-pager -n 500 || true
+          echo
+          echo "### Kernel Journal (last 300 lines)"
+          journalctl -k --no-pager -n 300 || true
+          echo
+          echo "### Warning-and-above Journal (last 300 lines)"
+          journalctl -p warning..alert --no-pager -n 300 || true
+          echo
           echo "### Apache Journal"
-          journalctl -u apache2 -n 25 --no-pager || true
+          journalctl -u apache2 --no-pager -n 300 || true
           echo
           echo "### Nginx Journal"
-          journalctl -u nginx -n 25 --no-pager || true
+          journalctl -u nginx --no-pager -n 300 || true
+          echo
+          echo "### Common /var/log Files"
+          for f in \
+            /var/log/syslog \
+            /var/log/messages \
+            /var/log/auth.log \
+            /var/log/kern.log \
+            /var/log/dpkg.log \
+            /var/log/apt/history.log \
+            /var/log/apt/term.log \
+            /var/log/cloud-init.log \
+            /var/log/cloud-init-output.log \
+            /var/log/apache2/access.log \
+            /var/log/apache2/error.log \
+            /var/log/nginx/access.log \
+            /var/log/nginx/error.log
+          do
+            collect_file "$f"
+          done
+          echo
+          echo "### /var/log Inventory"
+          find /var/log -maxdepth 2 -type f | sort | while read -r f; do
+            ls -lh "$f" 2>/dev/null || true
+          done
+          echo
+          echo "### Rotated / Compressed Log Files"
+          find /var/log -type f \( -name '*.gz' -o -name '*.xz' -o -name '*.bz2' \) | sort | while read -r f; do
+            collect_rotated_file "$f"
+          done
           echo
         }
       register: host_report
